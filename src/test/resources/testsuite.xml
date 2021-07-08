@@ -8,14 +8,13 @@
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
             <class name="tests.LoginTest"/>
-            <class name="tests.DeleteProjectTest"/>
+
         </classes>
     </test> <!-- Test -->
     <test name="CreateNewProjectTest">
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
-            <class name="tests.CreateNewProjectTest"/>
-            <class name="tests.UpdateProjectTest"/>
+
         </classes>
     </test> <!-- Test -->
 </suite>
