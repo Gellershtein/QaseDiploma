@@ -27,7 +27,7 @@ public class ProjectsListPage extends BasePage {
         return this;
     }
 
-    public CreateNewProjectPage pressCreateNewProjectButton() {
+    public CreateNewProjectPage clickCreateNewProjectButton() {
         new Button("Create new project").click();
         return new CreateNewProjectPage();
     }
