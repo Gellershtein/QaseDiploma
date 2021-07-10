@@ -18,7 +18,7 @@ public class ProjectsSteps {
     public ProjectsSteps createNewProject(Project project) {
         projectsListPage
                 .open()
-                .pressCreateNewProjectButton()
+                .clickCreateNewProjectButton()
                 .createNewProject(project);
         return this;
     }
