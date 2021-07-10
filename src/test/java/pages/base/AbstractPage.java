@@ -11,7 +11,7 @@ public abstract class AbstractPage {
 
     public abstract AbstractPage isOpened();
 
-    public String getTextOfElement(By locator) {
+    public String getElementText(By locator) {
         log.debug(String.format("Getting text for element with locator '%s'", locator));
         String text = $(locator).shouldBe(visible).getText();
         log.debug(String.format("Text of element %s", text));
