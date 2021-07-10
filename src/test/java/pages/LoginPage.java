@@ -56,7 +56,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage validateErrorMessage(String errorMessage) {
-        assertEquals(getTextOfElement(ERROR_MESSAGE_LOCATOR), errorMessage, "Error does not match as expected");
+        assertEquals(getElementText(ERROR_MESSAGE_LOCATOR), errorMessage, "Error does not match as expected");
         return this;
     }
 

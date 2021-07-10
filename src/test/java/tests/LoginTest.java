@@ -1,15 +1,25 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static pages.LoginPage.INVALID_CREDENTIALS_ERROR_MESSAGE;
 
+@Feature("Login")
 public class LoginTest extends BaseTest {
 
+    @Test(description = "Open login form on {Configuration.baseUrl}")
+    public void loginFormShouldBeOpened() {
+        startSteps
+                .open()
+                .openLoginForm()
+                .isOpened();
+    }
+
     @Test(description = "Successful Login into {Configuration.baseUrl}")
-    public void successfulLogin() {
+    public void userShouldSuccessfullyLoggedIn() {
         loginSteps
                 .login(USER, PASSWORD);
     }
