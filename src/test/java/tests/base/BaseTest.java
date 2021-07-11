@@ -7,6 +7,7 @@ import org.testng.annotations.Listeners;
 import steps.LoginSteps;
 import steps.ProjectsSteps;
 import steps.StartSteps;
+import steps.SuiteSteps;
 import utils.PropertyReader;
 import utils.TestListener;
 
@@ -17,6 +18,7 @@ public class BaseTest {
     protected StartSteps startSteps;
     protected LoginSteps loginSteps;
     protected ProjectsSteps projectsSteps;
+    protected SuiteSteps suiteSteps;
 
 
     @BeforeClass(description = "Open browser")
@@ -34,6 +36,7 @@ public class BaseTest {
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
         startSteps = new StartSteps();
+        suiteSteps = new SuiteSteps();
     }
 
     @AfterClass(alwaysRun = true, description = "Close browser")

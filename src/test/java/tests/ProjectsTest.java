@@ -12,16 +12,16 @@ public class ProjectsTest extends BaseTest {
     @Test(description = "Project lifecycle (CRUD)")
     public void projectShouldBeCreatedThenUpdatedAndDeleted() {
         ProjectFactory projectsFactory = new ProjectFactory();
-        Project project = projectsFactory.getProject();
+        Project newProject = projectsFactory.getProject();
         Project updateProject = projectsFactory.getProject();
 
         loginSteps
                 .login(USER, PASSWORD);
 
         projectsSteps
-                .createNewProject(project)
-                .validateProjectFields(project)
-                .updateProject(project.getCode(), updateProject)
+                .createNewProject(newProject)
+                .validateProjectFields(newProject)
+                .updateProject(newProject.getCode(), updateProject)
                 .validateProjectFields(updateProject)
                 .deleteProject(updateProject.getCode())
                 .isProjectDeleted(updateProject.getTitle());
