@@ -32,7 +32,7 @@ public class ProjectsSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Updating project '{existedProject}' with new fields")
+    @Step("Updating project '{existedProject}' with new fields: '{updateProject.title}' with code '{updateProject.code}'")
     public ProjectsSteps updateProject(String existedProject, Project updateProject) {
         projectSettingsPage
                 .open(existedProject)
@@ -40,7 +40,7 @@ public class ProjectsSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Deleting project: '{projectCode}'")
+    @Step("Deleting project with code: '{projectCode}'")
     public ProjectsSteps deleteProject(String projectCode) {
         projectSettingsPage
                 .open(projectCode)
