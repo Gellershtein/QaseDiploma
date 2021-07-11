@@ -4,8 +4,9 @@ import io.qameta.allure.Step;
 import models.Project;
 import pages.ProjectSettingsPage;
 import pages.ProjectsListPage;
+import steps.base.BaseSteps;
 
-public class ProjectsSteps {
+public class ProjectsSteps extends BaseSteps {
     ProjectsListPage projectsListPage;
     ProjectSettingsPage projectSettingsPage;
 

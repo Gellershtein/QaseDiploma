@@ -4,10 +4,22 @@
     <listeners>
         <listener class-name="utils.AnnotationTransformer"></listener>
     </listeners>
-    <test name="test 1">
+    <test name="Login Test">
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
             <class name="tests.LoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Project CRUD test">
+        <!--  <parameter name="browser" value="chrome"></parameter> -->
+        <classes>
+            <class name="tests.ProjectsTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Suite CRUD test">
+        <!--  <parameter name="browser" value="chrome"></parameter> -->
+        <classes>
+            <class name="tests.SuiteTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>

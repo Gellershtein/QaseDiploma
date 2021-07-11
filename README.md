@@ -10,6 +10,7 @@ Diploma project for Qase.io
 ---------------------
 
 #### **Login to app**
+
 - open login page from scratch
 - login with valid data
 - login with invalid data using Data provider
@@ -21,5 +22,9 @@ Diploma project for Qase.io
 - delete existed project and validate that project deleted
 
 #### **Create test suite(CRUD)**
+
+- create new suite and validate data after creation
+- update existed suite and validate data after update
+- delete existed suite and validate that project deleted
 
 #### **Create test case (CRUD)**
