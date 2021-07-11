@@ -11,6 +11,8 @@ import steps.SuiteSteps;
 import utils.PropertyReader;
 import utils.TestListener;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+
 @Listeners(TestListener.class)
 public class BaseTest {
 
@@ -31,7 +33,7 @@ public class BaseTest {
         Configuration.clickViaJs = true;
         Configuration.headless = false;
         Configuration.startMaximized = true;
-        Configuration.timeout = 10000;
+        Configuration.timeout = 20000;
 //        Configuration.holdBrowserOpen = true;
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
@@ -41,6 +43,6 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true, description = "Close browser")
     public void tearDown() {
-//        getWebDriver().quit();
+        getWebDriver().quit();
     }
 }

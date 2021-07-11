@@ -27,5 +27,8 @@ public class SuiteTest extends BaseTest {
                 .validateSuiteFields(updateSuite)
                 .deleteSuite(updateSuite.getTitle())
                 .isSuiteDeleted(updateSuite.getTitle());
+        projectsSteps
+                .deleteProject(newProject.getCode())
+                .isProjectDeleted(newProject.getTitle());
     }
 }
