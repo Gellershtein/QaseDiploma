@@ -13,6 +13,7 @@ public class StartSteps extends BaseSteps {
         homePage = new HomePage();
     }
 
+    //TODO
     @Step("Open start page {Configuration.baseUrl}")
     public StartSteps open() {
         homePage

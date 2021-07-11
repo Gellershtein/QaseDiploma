@@ -20,7 +20,7 @@ public class SuiteSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Validating fields of suite: {suite.title}")
+    @Step("Validating fields of suite: Title: {suite.title} Description: {suite.description}")
     public SuiteSteps validateSuiteFields(Suite suite) {
         repositoryPage
                 .validateSuiteFields(suite);
@@ -35,7 +35,7 @@ public class SuiteSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Updating suite '{suiteName}' with new fields")
+    @Step("Updating suite '{suiteName}' with new fields. Title: {updateSuite.title} Description: {updateSuite.description}")
     public SuiteSteps updateSuite(String suiteName, Suite updateSuite) {
         repositoryPage
                 .clickEditSuiteButton(suiteName)
