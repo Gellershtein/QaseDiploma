@@ -21,14 +21,17 @@ public class SuiteTest extends BaseTest {
                 .login(USER, PASSWORD);
         projectsSteps
                 .createNewProject(newProject);
+        //TODO проверка что suite создан
         suiteSteps
                 .createNewSuite(newSuite)
                 .updateSuite(newSuite.getTitle(), updateSuite)
                 .validateSuiteFields(updateSuite)
                 .deleteSuite(updateSuite.getTitle())
                 .isSuiteDeleted(updateSuite.getTitle());
+        //TODO вынести в afterMethod внутри ЭТОГО ЖЕ класса
         projectsSteps
                 .deleteProject(newProject.getCode())
                 .isProjectDeleted(newProject.getTitle());
     }
+
 }

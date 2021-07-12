@@ -26,6 +26,7 @@ public class RepositoryPage extends BasePage {
         return this;
     }
 
+    @Deprecated
     @Override
     public RepositoryPage open() throws Exception {
         return this;

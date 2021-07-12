@@ -48,6 +48,7 @@ public class ProjectSettingsPage extends BasePage {
         return new DeleteConfirmationPage();
     }
 
+    @Deprecated
     @Override
     public ProjectSettingsPage open() throws Exception {
         return this;
