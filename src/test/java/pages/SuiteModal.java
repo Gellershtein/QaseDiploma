@@ -28,20 +28,11 @@ public class SuiteModal extends BaseModal {
     public RepositoryPage updateSuite(Suite suite) {
         return createNewSuite(suite);
     }
-
-    //TODO
-    //QUESTIONS HERE
+    
     private void fillingSuiteForm(Suite suite) {
-        try {
-            Thread.sleep(500);
-            new Input("Suite name").clear().write(suite.getTitle());
-            Thread.sleep(500);
-            new MirrorInput("Description").clear().write(suite.getDescription());
-            Thread.sleep(500);
-            new MirrorInput("Preconditions").clear().write(suite.getPreconditions());
-        } catch (InterruptedException error) {
-            error.printStackTrace();
-        }
+        new Input("Suite name").clear().write(suite.getTitle());
+        new MirrorInput("Description").clear().write(suite.getDescription());
+        new MirrorInput("Preconditions").clear().write(suite.getPreconditions());
     }
 }
 

@@ -43,9 +43,9 @@ public class ProjectSettingsPage extends BasePage {
         new RadioButton(project.getAccess()).shouldBe(Condition.selected);
     }
 
-    public DeleteConfirmationPage clickDeleteProjectButton() {
+    public DeleteProjectConfirmationModal clickDeleteProjectButton() {
         deleteProjectButton.click();
-        return new DeleteConfirmationPage();
+        return new DeleteProjectConfirmationModal();
     }
 
     @Deprecated

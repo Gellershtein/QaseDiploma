@@ -24,6 +24,7 @@ public class MirrorInput {
     }
 
     public MirrorInput clear() {
+        setFocus();
         $x(String.format(locator, label)).shouldBe(visible).clear();
         return this;
     }

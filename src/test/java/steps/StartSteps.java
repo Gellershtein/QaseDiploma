@@ -13,9 +13,9 @@ public class StartSteps extends BaseSteps {
         homePage = new HomePage();
     }
 
-    //TODO
-    @Step("Open start page {Configuration.baseUrl}")
+    @Step("Open start page for QASE project")
     public StartSteps open() {
+
         homePage
                 .open()
                 .isOpened();

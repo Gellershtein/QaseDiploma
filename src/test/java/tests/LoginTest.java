@@ -10,7 +10,7 @@ import static pages.LoginPage.INVALID_CREDENTIALS_ERROR_MESSAGE;
 @Feature("Login")
 public class LoginTest extends BaseTest {
 
-    @Test(description = "Open login form on {Configuration.baseUrl}")
+    @Test(description = "Open login form for QASE project")
     public void loginFormShouldBeOpened() {
         startSteps
                 .open()
@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
                 .isOpened();
     }
 
-    @Test(description = "Successful Login into {Configuration.baseUrl}")
+    @Test(description = "Successful Login into QASE project")
     public void userShouldSuccessfullyLoggedIn() {
         loginSteps
                 .login(USER, PASSWORD);
