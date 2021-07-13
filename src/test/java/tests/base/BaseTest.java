@@ -30,10 +30,10 @@ public class BaseTest {
         PASSWORD = utils.PropertyReader.getProperty("QASE_PASSWORD", "qase.password");
         HOME_URL = System.getenv().getOrDefault("QASE_HOME_URL", PropertyReader.getProperty("qase.homeUrl"));
         Configuration.browser = "chrome";
-        Configuration.clickViaJs = true;
+        Configuration.clickViaJs = false;
         Configuration.headless = false;
         Configuration.startMaximized = true;
-        Configuration.timeout = 20000;
+        Configuration.timeout = 10000;
 //        Configuration.holdBrowserOpen = true;
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();

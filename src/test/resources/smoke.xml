@@ -4,18 +4,18 @@
     <listeners>
         <listener class-name="utils.AnnotationTransformer"></listener>
     </listeners>
-    <test name="Login Test">
-        <!--  <parameter name="browser" value="chrome"></parameter> -->
-        <classes>
-            <class name="tests.LoginTest"/>
-        </classes>
-    </test> <!-- Test -->
-    <test name="Project CRUD test">
-        <!--  <parameter name="browser" value="chrome"></parameter> -->
-        <classes>
-            <class name="tests.ProjectsTest"/>
-        </classes>
-    </test> <!-- Test -->
+    <!--    <test name="Login Test">-->
+    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
+    <!--        <classes>-->
+    <!--            <class name="tests.LoginTest"/>-->
+    <!--        </classes>-->
+    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+    <!--    <test name="Project CRUD test">-->
+    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
+    <!--        <classes>-->
+    <!--            <class name="tests.ProjectsTest"/>-->
+    <!--        </classes>-->
+    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
     <test name="Suite CRUD test">
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
