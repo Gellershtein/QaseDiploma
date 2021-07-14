@@ -10,15 +10,15 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class RepositoryPage extends BasePage {
 
-    private String header = "//*[contains(text(),'%s')]";
-    private String suiteNameLabel = "//a[@class='suite-header-title' and contains(text(),'%s')]";
-    private String suiteDescription = "//*[@class='suite-description']/child::p[contains(text(),'%s')]";
-    private String suiteDeleteButton = suiteNameLabel + "/following-sibling::button/i[contains(@class, 'fa-trash')]";
-    private String suiteEditButton = suiteNameLabel + "/following-sibling::button/i[contains(@class, 'fa-pencil-alt')]";
-    private String theCaseNameLabel = "//*[contains(text(),'%s')]";
-    private String editCaseButton = "//*[contains(@title,'Edit case')]";
-    private String deleteCaseButton = "//*[contains(@title,'Delete case')]";
-    private String confirmDeleteCaseButton = "//*[contains(@class,'modal-footer')]/*[contains(text(),'Delete')]";
+    private final String header = "//*[contains(text(),'%s')]";
+    private final String suiteNameLabel = "//a[@class='suite-header-title' and contains(text(),'%s')]";
+    private final String suiteDescription = "//*[@class='suite-description']/child::p[contains(text(),'%s')]";
+    private final String suiteDeleteButton = suiteNameLabel + "/following-sibling::button/i[contains(@class, 'fa-trash')]";
+    private final String suiteEditButton = suiteNameLabel + "/following-sibling::button/i[contains(@class, 'fa-pencil-alt')]";
+    private final String theCaseNameLabel = "//*[contains(text(),'%s')]";
+    private final String editCaseButton = "//*[contains(@title,'Edit case')]";
+    private final String deleteCaseButton = "//*[contains(@title,'Delete case')]";
+    private final String confirmDeleteCaseButton = "//*[contains(@class,'modal-footer')]/*[contains(text(),'Delete')]";
 
     public RepositoryPage isOpened(String projectName) {
         $x(String.format(header, projectName)).shouldBe(Condition.exactText(projectName));

@@ -14,10 +14,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class CreateNewCasePage extends BasePage {
-    private SelenideElement createTestCaseLabel = $x("//*[contains(text(), 'Create test case')]");
-    private SelenideElement saveCaseButton = $("#save-case");
-    private SelenideElement addStepButton = $("#add-step");
-
+    private final SelenideElement createTestCaseLabel = $x("//*[contains(text(), 'Create test case')]");
+    private final SelenideElement saveCaseButton = $("#save-case");
+    private final SelenideElement addStepButton = $("#add-step");
 
     @Override
     public CreateNewCasePage isOpened() {

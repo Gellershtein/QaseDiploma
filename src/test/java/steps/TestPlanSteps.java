@@ -30,10 +30,10 @@ public class TestPlanSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Deleting Test Plan: '{suiteName}'")
-    public TestPlanSteps deleteTestPlan(String suiteName) {
+    @Step("Deleting Test Plan: '{testPlanName}'")
+    public TestPlanSteps deleteTestPlan(String testPlanName) {
         testPlanPage
-                .deleteTestPlan(suiteName)
+                .deleteTestPlan(testPlanName)
                 .confirmDeletingTestPlan();
         return this;
     }
