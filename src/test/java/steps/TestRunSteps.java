@@ -13,7 +13,7 @@ public class TestRunSteps extends BaseSteps {
         testRunPage = new TestRunPage();
     }
 
-    @Step("Creating a new suite: {testRun.testRunTitle}")
+    @Step("Creating a new Test Run: {testRun.testRunTitle}")
     public TestRunSteps createNewTestRun(Project project, TestRun testRun) {
         testRunPage
                 .clickTestRunLeftMenuButton()
@@ -24,14 +24,14 @@ public class TestRunSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Validating fields of Test Plan: Title: {testRun.testRunTitle}")
+    @Step("Validating fields of Test Run: Title: {testRun.testRunTitle}")
     public TestRunSteps validateTestRunFields(TestRun testRun) {
         testRunPage
                 .validateTestRunFields(testRun);
         return this;
     }
 
-    @Step("Deleting Test Plan: '{testRunName}'")
+    @Step("Deleting Test Run: '{testRunName}'")
     public TestRunSteps deleteTestRun(String testRunName) {
         testRunPage
                 .deleteTestRun(testRunName)
@@ -39,7 +39,7 @@ public class TestRunSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Updating Test Plan '{testRunName}' with new fields. Title: {updateTestRun.testRunTitle}")
+    @Step("Updating Test Run '{testRunName}' with new fields. Title: {updateTestRun.testRunTitle}")
     public TestRunSteps updateTestPlan(String testRunName, TestRun updateTestRun) {
         testRunPage
                 .clickEditTestRun(testRunName)
@@ -47,7 +47,7 @@ public class TestRunSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Verifying is '{testRunName}' Test Plan deleted")
+    @Step("Verifying is '{testRunName}' Test Run deleted")
     public TestRunSteps isTestRunDeleted(String testRunName) {
         testRunPage
                 .isTestRunDeleted(testRunName);

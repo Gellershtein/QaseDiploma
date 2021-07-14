@@ -13,7 +13,7 @@ public class TestPlanSteps extends BaseSteps {
         testPlanPage = new TestPlanPage();
     }
 
-    @Step("Creating a new suite: {testPlan.testPlanTitle}")
+    @Step("Creating a new Test Plan: {testPlan.testPlanTitle}")
     public TestPlanSteps createNewTestPlan(Project project, TestPlan testPlan) {
         testPlanPage
                 .clickTestPlanLeftMenuButton()
