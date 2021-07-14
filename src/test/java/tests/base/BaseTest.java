@@ -4,10 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
-import steps.LoginSteps;
-import steps.ProjectsSteps;
-import steps.StartSteps;
-import steps.SuiteSteps;
+import steps.*;
 import utils.PropertyReader;
 import utils.TestListener;
 
@@ -21,6 +18,8 @@ public class BaseTest {
     protected LoginSteps loginSteps;
     protected ProjectsSteps projectsSteps;
     protected SuiteSteps suiteSteps;
+    protected CaseSteps caseSteps;
+    protected TestPlanSteps testPlanSteps;
 
 
     @BeforeClass(description = "Open browser")
@@ -33,12 +32,14 @@ public class BaseTest {
         Configuration.clickViaJs = false;
         Configuration.headless = false;
         Configuration.startMaximized = true;
-        Configuration.timeout = 10000;
+        Configuration.timeout = 30000;
 //        Configuration.holdBrowserOpen = true;
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
         startSteps = new StartSteps();
         suiteSteps = new SuiteSteps();
+        caseSteps = new CaseSteps();
+        testPlanSteps = new TestPlanSteps();
     }
 
     @AfterClass(alwaysRun = true, description = "Close browser")

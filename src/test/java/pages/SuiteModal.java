@@ -28,7 +28,7 @@ public class SuiteModal extends BaseModal {
     public RepositoryPage updateSuite(Suite suite) {
         return createNewSuite(suite);
     }
-    
+
     private void fillingSuiteForm(Suite suite) {
         new Input("Suite name").clear().write(suite.getTitle());
         new MirrorInput("Description").clear().write(suite.getDescription());
