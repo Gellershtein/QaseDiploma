@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CreateNewTestPlanPage extends BasePage {
-    private SelenideElement saveTestPlanButton = $("#save-plan");
+    private final SelenideElement saveTestPlanButton = $("#save-plan");
 
     @Override
     public CreateNewTestPlanPage isOpened() {
@@ -42,7 +42,6 @@ public class CreateNewTestPlanPage extends BasePage {
     public TestPlanPage updateTestPlan(TestPlan testPlan) {
         return createNewTestPlan(testPlan);
     }
-
 
     @Deprecated
     @Override

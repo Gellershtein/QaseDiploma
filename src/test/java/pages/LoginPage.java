@@ -13,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 
 public class LoginPage extends BasePage {
 
-    public static final By ERROR_MESSAGE_LOCATOR = By.className("form-control-feedback");
+    private final By ERROR_MESSAGE_LOCATOR = By.className("form-control-feedback");
     public static final String INVALID_CREDENTIALS_ERROR_MESSAGE = "These credentials do not match our records.";
 
     public LoginPage fillLoginForm(String email, String password) {

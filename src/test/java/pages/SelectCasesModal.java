@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.*;
 @Log4j2
 public class SelectCasesModal extends BaseModal {
 
-    private SelenideElement doneSelectCasesButton = $("#select-cases-done-button");
-    public SelenideElement selectTestCasesCheckbox = $(".custom-checkbox");
-    public SelenideElement statusCheckbox = $("[type='checkbox']");
-    public static final String searchInput = "//*[contains(@class,'filters-block')]/descendant::div[contains(@class, 'case-search')]";
+    private final SelenideElement doneSelectCasesButton = $("#select-cases-done-button");
+    private final SelenideElement selectTestCasesCheckbox = $(".custom-checkbox");
+    private final SelenideElement statusCheckbox = $("[type='checkbox']");
+    private final String searchInput = "//*[contains(@class,'filters-block')]/descendant::div[contains(@class, 'case-search')]";
 
     @Override
     public SelectCasesModal isOpened() {
