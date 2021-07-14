@@ -27,14 +27,14 @@ public class TestListener implements ITestListener {
         System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
         takeScreenshot(iTestResult.getTestContext());
-        getWebDriver().close();
+//        getWebDriver().close();
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
         System.out.println(String.format("======================================== SKIPPING TEST %s ========================================", iTestResult.getName()));
         takeScreenshot(iTestResult.getTestContext());
-        getWebDriver().close();
+//        getWebDriver().close();
     }
 
     @Override
