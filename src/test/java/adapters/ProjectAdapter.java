@@ -41,7 +41,7 @@ public class ProjectAdapter extends BaseAdapter {
     @Attachment
     @Step("Delete project: {project.title}")
     public ProjectResult delete(Project project) {
-        Response response = super.delete(String.format("%s%s", URI, project.getCode()), 200);
+        Response response = super.delete(String.format("%s/%s", URI, project.getCode()), 200);
         validateTrueStatus(response);
         return gson.fromJson(response.asString(), ProjectResult.class);
 
