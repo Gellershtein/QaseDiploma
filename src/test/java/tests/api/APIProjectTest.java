@@ -3,6 +3,7 @@ package tests.api;
 import adapters.ProjectAdapter;
 import com.github.javafaker.Faker;
 import factories.ProjectFactory;
+import io.qameta.allure.Feature;
 import lombok.extern.log4j.Log4j2;
 import models.Project;
 import models.api.ProjectResult;
@@ -12,6 +13,7 @@ import steps.ProjectsSteps;
 import static org.testng.Assert.assertEquals;
 
 @Log4j2
+@Feature("Projects")
 public class APIProjectTest {
     ProjectsSteps projectsSteps = new ProjectsSteps();
     ProjectAdapter projectAdapter = new ProjectAdapter();
