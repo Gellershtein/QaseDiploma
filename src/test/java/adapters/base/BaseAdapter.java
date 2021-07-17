@@ -17,7 +17,7 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class BaseAdapter {
     public static final String TOKEN = System.getenv().getOrDefault("QASE_TOKEN", PropertyReader.getProperty("qase.token"));
-    public static final String URL = System.getenv().getOrDefault("QASE_URL", PropertyReader.getProperty("qase.apiUrl"));
+    public static final String URL = System.getenv().getOrDefault("QASE_API_URL", PropertyReader.getProperty("qase.apiUrl"));
     protected Gson gson =
             new GsonBuilder()
                 .excludeFieldsWithoutExposeAnnotation()
