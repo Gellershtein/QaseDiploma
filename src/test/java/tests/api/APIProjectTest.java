@@ -19,7 +19,7 @@ public class APIProjectTest {
     ProjectAdapter projectAdapter = new ProjectAdapter();
     Faker faker = new Faker();
 
-    @Test
+    @Test(enabled = false)
     public void getProjectByName() {
         Project expectedResult = Project.builder()
                 .title("Genji")
@@ -33,7 +33,7 @@ public class APIProjectTest {
         assertEquals(result.getResult(), expectedResult);
     }
 
-    @Test
+    @Test(enabled = false)
     public void getProjectByName2() {
         ProjectFactory projectsFactory = new ProjectFactory();
         Project newProject = Project.builder()
