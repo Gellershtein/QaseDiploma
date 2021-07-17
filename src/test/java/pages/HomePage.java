@@ -18,6 +18,8 @@ public class HomePage extends BasePage {
     }
 
     public LoginPage clickOnLoginButton() {
+        String style = loginButton.getAttribute("style");
+        System.out.println(style);
         loginButton.click();
         return new LoginPage();
     }

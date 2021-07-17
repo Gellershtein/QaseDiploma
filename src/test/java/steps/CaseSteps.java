@@ -12,7 +12,7 @@ public class CaseSteps extends BaseSteps {
         repositoryPage = new RepositoryPage();
     }
 
-    @Step("Creating '{aCase.title}' case")
+    @Step("Creating '{newCase.title}' case")
     public CaseSteps createNewCaseWithoutSuite(Case newCase) {
         repositoryPage
                 .clickCreateNewCaseButton()

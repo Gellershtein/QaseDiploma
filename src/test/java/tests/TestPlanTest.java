@@ -3,6 +3,7 @@ package tests;
 import factories.CaseFactory;
 import factories.ProjectFactory;
 import factories.TestPlanFactory;
+import io.qameta.allure.Feature;
 import models.Case;
 import models.Project;
 import models.TestPlan;
@@ -12,6 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
+@Feature("Test Plan")
 public class TestPlanTest extends BaseTest {
     Project newProject;
     Case newCase;
