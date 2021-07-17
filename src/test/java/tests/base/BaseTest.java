@@ -45,6 +45,6 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true, description = "Close browser")
     public void tearDown() {
-        getWebDriver().quit();
+        getWebDriver().close();
     }
 }
