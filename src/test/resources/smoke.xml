@@ -46,4 +46,10 @@
             <class name="tests.api.APIProjectTest"/>
         </classes>
     </test> <!-- Test -->
+    <test name="API Project CRD test">
+        <!--  <parameter name="browser" value="chrome"></parameter> -->
+        <classes>
+            <class name="tests.api.APICaseTest"/>
+        </classes>
+    </test> <!-- Test -->
 </suite>
