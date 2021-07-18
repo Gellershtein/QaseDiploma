@@ -29,8 +29,8 @@ public class CaseFactory extends BaseFactory {
                 .isFlaky(isFlaky)
                 .behavior(behavior)
                 .automationStatus(automationStatus)
-                .preConditions(fakeValuesService.regexify("[a-z1-9]{10}"))
-                .postConditions(fakeValuesService.regexify("[a-z1-9]{10}"))
+                .preconditions(fakeValuesService.regexify("[a-z1-9]{10}"))
+                .postconditions(fakeValuesService.regexify("[a-z1-9]{10}"))
                 .build();
     }
 }

@@ -8,6 +8,7 @@ import elements.Dropdown;
 import elements.Input;
 import elements.MirrorInput;
 import models.Case;
+import models.Project;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -24,8 +25,8 @@ public class CreateNewCasePage extends BasePage {
         return this;
     }
 
-    public CreateNewCasePage open(String projectCode) {
-        Selenide.open("case/" + projectCode + "/create");
+    public CreateNewCasePage open(Project project) {
+        Selenide.open("case/" + project.getCode() + "/create");
         return this;
     }
 
@@ -34,6 +35,13 @@ public class CreateNewCasePage extends BasePage {
         saveCaseButton.click();
         return new RepositoryPage();
     }
+
+    public RepositoryPage createNewCase(Project project, Case newCase) {
+        open(project);
+        createNewCase(newCase);
+        return new RepositoryPage();
+    }
+
 
     private void fillCaseForm(Case theCase) {
         new Input("Title").clear().write(theCase.getTitle());
@@ -45,8 +53,8 @@ public class CreateNewCasePage extends BasePage {
         new Dropdown("Layer").setDropdown(theCase.getLayer());
         new Dropdown("Is Flaky").setDropdown(theCase.getIsFlaky());
         new Dropdown("Behavior").setDropdown(theCase.getBehavior());
-        new MirrorInput("Pre-conditions").clear().write(theCase.getPreConditions());
-        new MirrorInput("Post-conditions").clear().write(theCase.getPostConditions());
+        new MirrorInput("Pre-conditions").clear().write(theCase.getPreconditions());
+        new MirrorInput("Post-conditions").clear().write(theCase.getPostconditions());
         new Dropdown("Automation status").setDropdown(theCase.getAutomationStatus());
     }
 
@@ -65,8 +73,8 @@ public class CreateNewCasePage extends BasePage {
         new Dropdown("Is Flaky").shouldHave(theCase.getIsFlaky());
         new Dropdown("Behavior").shouldHave(theCase.getBehavior());
         new Dropdown("Automation status").shouldHave(theCase.getAutomationStatus());
-        new MirrorInput("Pre-conditions").shouldHave(theCase.getPreConditions());
-        new MirrorInput("Post-conditions").shouldHave(theCase.getPostConditions());
+        new MirrorInput("Pre-conditions").shouldHave(theCase.getPreconditions());
+        new MirrorInput("Post-conditions").shouldHave(theCase.getPostconditions());
         new Button("Cancel").click();
         new Button("Close form").click();
         return new RepositoryPage();
