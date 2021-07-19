@@ -52,7 +52,7 @@
             <class name="tests.api.APICaseTest"/>
         </classes>
     </test> <!-- Test -->
-    <test name="API Case CRUD test">
+    <test name="API Suite CRUD test">
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
             <class name="tests.api.APISuiteTest"/>

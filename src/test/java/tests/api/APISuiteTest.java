@@ -31,8 +31,8 @@ public class APISuiteTest {
                 .createNewProjectViaApi(newProject);
     }
 
-    @Test(description = "Get suite from project: {newProject.title} by ID and validate it")
-    public void getSuiteByIdViaApi() {
+    @Test(description = "Test Suite lifecycle (CRUD)")
+    public void testSuiteShouldBeCreatedThenUpdatedAndDeletedViaApi() {
         suiteSteps
                 .createNewSuiteViaApi(newProject, newSuite)
 //                .getSuiteWithIdAndValidateItViaApi(newProject, newSuite, 1)
