@@ -35,7 +35,7 @@ public class APICaseTest extends BaseTest {
                 .createNewCaseForProject(newProject, newCase);
     }
 
-    @Test(description = "Get case from project: {newProject.title} by ID and validate it")
+    @Test(description = "Test Case lifecycle (RD)")
     public void getCaseByIdViaApi() {
         caseSteps
                 .getCaseWithIdAndValidateItViaApi(newProject, newCase, 1)

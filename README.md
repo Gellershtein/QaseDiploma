@@ -52,7 +52,7 @@ Diploma project for Qase.io
 - [REST API] delete existed project and validate that project deleted
 
 
-#### **Test Case check via API (CRD)**
+#### **Test Case check via API (RD)**
 
 - [REST API] get specific Test Case from project by ID and validate data
 - [REST API] get ALL Test Case from project
