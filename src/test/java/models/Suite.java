@@ -9,6 +9,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class Suite {
+    //    @Expose
+//    int id;
     @Expose
     String title;
     @Expose
