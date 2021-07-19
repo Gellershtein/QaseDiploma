@@ -1,14 +1,14 @@
 package pages;
 
 import elements.Button;
-import pages.base.BasePage;
+import pages.base.BaseModal;
 
 import static com.codeborne.selenide.Condition.visible;
 
-public class DeleteConfirmationPage extends BasePage {
+public class DeleteProjectConfirmationModal extends BaseModal {
 
     @Override
-    public DeleteConfirmationPage isOpened() {
+    public DeleteProjectConfirmationModal isOpened() {
         new Button(" Delete project").shouldBe(visible);
         return this;
     }
@@ -18,8 +18,4 @@ public class DeleteConfirmationPage extends BasePage {
         return new ProjectsListPage();
     }
 
-    @Override
-    public BasePage open() throws Exception {
-        return null;
-    }
 }

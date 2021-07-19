@@ -4,8 +4,9 @@ import io.qameta.allure.Step;
 import models.Project;
 import pages.ProjectSettingsPage;
 import pages.ProjectsListPage;
+import steps.base.BaseSteps;
 
-public class ProjectsSteps {
+public class ProjectsSteps extends BaseSteps {
     ProjectsListPage projectsListPage;
     ProjectSettingsPage projectSettingsPage;
 
@@ -31,7 +32,7 @@ public class ProjectsSteps {
         return this;
     }
 
-    @Step("Updating project '{existedProject}' with new fields")
+    @Step("Updating project '{existedProject}' with new fields: '{updateProject.title}' with code '{updateProject.code}'")
     public ProjectsSteps updateProject(String existedProject, Project updateProject) {
         projectSettingsPage
                 .open(existedProject)
@@ -39,7 +40,7 @@ public class ProjectsSteps {
         return this;
     }
 
-    @Step("Deleting project: '{projectCode}'")
+    @Step("Deleting project with code: '{projectCode}'")
     public ProjectsSteps deleteProject(String projectCode) {
         projectSettingsPage
                 .open(projectCode)

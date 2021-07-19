@@ -7,8 +7,11 @@ import org.testng.annotations.Listeners;
 import steps.LoginSteps;
 import steps.ProjectsSteps;
 import steps.StartSteps;
+import steps.SuiteSteps;
 import utils.PropertyReader;
 import utils.TestListener;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Listeners(TestListener.class)
 public class BaseTest {
@@ -17,6 +20,7 @@ public class BaseTest {
     protected StartSteps startSteps;
     protected LoginSteps loginSteps;
     protected ProjectsSteps projectsSteps;
+    protected SuiteSteps suiteSteps;
 
 
     @BeforeClass(description = "Open browser")
@@ -26,7 +30,7 @@ public class BaseTest {
         PASSWORD = utils.PropertyReader.getProperty("QASE_PASSWORD", "qase.password");
         HOME_URL = System.getenv().getOrDefault("QASE_HOME_URL", PropertyReader.getProperty("qase.homeUrl"));
         Configuration.browser = "chrome";
-        Configuration.clickViaJs = true;
+        Configuration.clickViaJs = false;
         Configuration.headless = false;
         Configuration.startMaximized = true;
         Configuration.timeout = 10000;
@@ -34,10 +38,11 @@ public class BaseTest {
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
         startSteps = new StartSteps();
+        suiteSteps = new SuiteSteps();
     }
 
     @AfterClass(alwaysRun = true, description = "Close browser")
     public void tearDown() {
-//        getWebDriver().quit();
+        getWebDriver().quit();
     }
 }

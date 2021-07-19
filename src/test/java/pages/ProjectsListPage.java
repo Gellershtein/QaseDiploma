@@ -42,10 +42,10 @@ public class ProjectsListPage extends BasePage {
         return this;
     }
 
-    public DeleteConfirmationPage findProjectAndPressDeleteButton(String projectName) {
+    public DeleteProjectConfirmationModal findProjectAndPressDeleteButton(String projectName) {
         findProjectAndPressThreeDotsButton(projectName);
         $x(String.format(deleteDropdownOption, projectName)).click();
-        return new DeleteConfirmationPage();
+        return new DeleteProjectConfirmationModal();
     }
 
     public RepositoryPage openProject(String projectName) {
