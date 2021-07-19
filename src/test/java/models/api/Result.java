@@ -7,6 +7,7 @@ import lombok.Data;
 @Builder
 @Data
 public class Result<T> {
+    @Expose
     boolean status;
     @Expose
     T result;
