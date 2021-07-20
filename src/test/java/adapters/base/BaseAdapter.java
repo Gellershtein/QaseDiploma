@@ -20,8 +20,8 @@ public class BaseAdapter {
     public static final String URL = System.getenv().getOrDefault("QASE_API_URL", PropertyReader.getProperty("qase.apiUrl"));
     protected Gson gson =
             new GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation()
-                .create();
+                    .excludeFieldsWithoutExposeAnnotation()
+                    .create();
     public static final RequestSpecification REQ_SPEC =
             new RequestSpecBuilder()
                     .setContentType(ContentType.JSON)
@@ -33,27 +33,27 @@ public class BaseAdapter {
 
         return
                 given()
-                    .spec(REQ_SPEC)
-                .when()
-                    .get(String.format("%s%s", URL, request))
-                .then()
-                    .log().body()
-                    .statusCode(statusCode)
-                    .extract().response();
+                        .spec(REQ_SPEC)
+                        .when()
+                        .get(String.format("%s%s", URL, request))
+                        .then()
+                        .log().body()
+                        .statusCode(statusCode)
+                        .extract().response();
     }
 
     @Step("Doing the delete request, validating status code: '{statusCode}'")
-    protected Response delete(String urn, int statusCode) {
+    protected Response delete(String request, int statusCode) {
 
         return
                 given()
-                    .spec(REQ_SPEC)
-                .when()
-                    .delete(String.format("%s%s", URL, urn))
-                .then()
-                    .log().body()
-                    .statusCode(statusCode)
-                    .extract().response();
+                        .spec(REQ_SPEC)
+                        .when()
+                        .delete(String.format("%s%s", URL, request))
+                        .then()
+                        .log().body()
+                        .statusCode(statusCode)
+                        .extract().response();
     }
 
     @Step("Doing the post request to: '{request}', validating status code: '{statusCode}'")
@@ -61,31 +61,31 @@ public class BaseAdapter {
 
         return
                 given()
-                    .spec(REQ_SPEC)
-                    .body(body)
-                    .log().body()
-                .when()
-                    .post(String.format("%s%s", URL, request))
-                .then()
-                    .log().body()
-                    .statusCode(statusCode)
-                    .extract().response();
+                        .spec(REQ_SPEC)
+                        .body(body)
+                        .log().body()
+                        .when()
+                        .post(String.format("%s%s", URL, request))
+                        .then()
+                        .log().body()
+                        .statusCode(statusCode)
+                        .extract().response();
     }
 
     @Step("Doing the patch request, validating status code: '{statusCode}'")
-    protected Response patch(String uri, String body, int statusCode) {
+    protected Response patch(String request, String body, int statusCode) {
 
         return
                 given()
-                    .spec(REQ_SPEC)
-                    .body(body)
-                    .log().body()
-                .when()
-                    .patch(String.format("%s%s", URL, uri))
-                .then()
-                    .log().body()
-                    .statusCode(statusCode)
-                    .extract().response();
+                        .spec(REQ_SPEC)
+                        .body(body)
+                        .log().body()
+                        .when()
+                        .patch(String.format("%s%s", URL, request))
+                        .then()
+                        .log().body()
+                        .statusCode(statusCode)
+                        .extract().response();
     }
 
 

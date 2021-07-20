@@ -1,45 +1,43 @@
 package tests.api;
 
-import factories.CaseFactory;
 import factories.ProjectFactory;
+import factories.SuiteFactory;
 import lombok.extern.log4j.Log4j2;
-import models.Case;
 import models.Project;
+import models.Suite;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import tests.base.BaseTest;
+import steps.ProjectsSteps;
+import steps.SuiteSteps;
 
 @Log4j2
-
-public class APICaseTest extends BaseTest {
+public class APISuiteTest {
+    ProjectsSteps projectsSteps = new ProjectsSteps();
+    SuiteSteps suiteSteps = new SuiteSteps();
     Project newProject;
-    Case newCase;
+    Suite newSuite, updateSuite;
 
     @BeforeMethod(alwaysRun = true, description = "Create project before test")
     public void createNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
-        CaseFactory caseFactory = new CaseFactory();
-        newCase = caseFactory.getCase();
-
+        SuiteFactory suiteFactory = new SuiteFactory();
+        newSuite = suiteFactory.getSuite();
+        updateSuite = suiteFactory.getSuite();
 
         projectsSteps
-                .createNewProjectViaApi(newProject)
-                .getProjectViaApi(newProject);
-
-        loginSteps
-                .login(USER, PASSWORD);
-        caseSteps
-                .createNewCaseForProject(newProject, newCase);
+                .createNewProjectViaApi(newProject);
     }
 
-    @Test(description = "Test Case lifecycle (RD)")
-    public void getCaseByIdViaApi() {
-        caseSteps
-                .getCaseWithIdAndValidateItViaApi(newProject, newCase, 1)
-                .getAllCasesUsingAPI(newProject)
+    @Test(description = "Test Suite lifecycle (CRUD)")
+    public void testSuiteShouldBeCreatedThenUpdatedAndDeletedViaApi() {
+        suiteSteps
+                .createNewSuiteViaApi(newProject, newSuite)
+//                .getSuiteWithIdAndValidateItViaApi(newProject, newSuite, 1)
+                .updateSuiteByIdViaApi(newProject, updateSuite, 1)
+                .getAllSuitesUsingAPI(newProject)
                 .deleteCaseByIdViaApi(newProject, 1);
     }
 
