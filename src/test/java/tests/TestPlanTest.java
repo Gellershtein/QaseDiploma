@@ -8,9 +8,7 @@ import models.Case;
 import models.Project;
 import models.TestPlan;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import tests.base.BaseTest;
 
 @Feature("Test Plan")
@@ -18,7 +16,7 @@ public class TestPlanTest extends BaseTest {
     Project newProject;
     Case newCase;
 
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
+    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
@@ -50,7 +48,7 @@ public class TestPlanTest extends BaseTest {
                 .isTestPlanDeleted(updTestPlan.getTestPlanTitle());
     }
 
-    @AfterMethod(description = "Delete project after test")
+    @AfterTest(description = "Delete project after test")
     public void deleteProject(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
             projectsSteps

@@ -4,13 +4,14 @@ import factories.ProjectFactory;
 import io.qameta.allure.Feature;
 import models.Project;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 @Feature("Projects")
 public class ProjectsTest extends BaseTest {
 
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
+    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
     public void login() {
         loginSteps
                 .login(USER, PASSWORD);

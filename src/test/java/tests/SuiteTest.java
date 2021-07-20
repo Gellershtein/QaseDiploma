@@ -6,16 +6,14 @@ import io.qameta.allure.Feature;
 import models.Project;
 import models.Suite;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import tests.base.BaseTest;
 
 @Feature("Test Suite")
 public class SuiteTest extends BaseTest {
     Project newProject;
 
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
+    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
@@ -42,7 +40,7 @@ public class SuiteTest extends BaseTest {
                 .isSuiteDeleted(updateSuite.getTitle());
     }
 
-    @AfterMethod(description = "Delete project after test")
+    @AfterTest(description = "Delete project after test")
     public void deleteProject(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
             projectsSteps

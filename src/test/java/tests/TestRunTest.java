@@ -8,9 +8,7 @@ import models.Case;
 import models.Project;
 import models.TestRun;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import tests.base.BaseTest;
 
 @Feature("Test Run")
@@ -20,7 +18,7 @@ public class TestRunTest extends BaseTest {
     Case newCase;
 
     //TODO При падении теста, ретрай аналайзер не может продолжить тест, т.к. браузер остается открытым
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
+    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
@@ -52,7 +50,7 @@ public class TestRunTest extends BaseTest {
                 .isTestRunDeleted(updTestRun.getTestRunTitle());
     }
 
-    @AfterMethod(description = "Delete project after test")
+    @AfterTest(description = "Delete project after test")
     public void deleteProject(ITestResult result) {
         if (result.getStatus() == ITestResult.SUCCESS) {
             projectsSteps
