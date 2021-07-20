@@ -1,9 +1,7 @@
 package tests.base;
 
 import com.codeborne.selenide.Configuration;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
 import steps.*;
 import utils.PropertyReader;
 import utils.TestListener;
@@ -25,7 +23,7 @@ public class BaseTest {
     protected TestPlanSteps testPlanSteps;
     protected TestRunSteps testRunSteps;
 
-    @BeforeMethod(description = "Open browser")
+    @BeforeTest(description = "Open browser")
     public void setup() {
         Configuration.baseUrl = System.getenv().getOrDefault("QASE_URL", PropertyReader.getProperty("qase.url"));
 //        USER = utils.PropertyReader.getProperty("QASE_USER", "qase.user");
@@ -46,7 +44,7 @@ public class BaseTest {
         testRunSteps = new TestRunSteps();
     }
 
-    @AfterMethod(alwaysRun = true, description = "Close browser")
+    @AfterTest(alwaysRun = true, description = "Close browser")
     public void tearDown() {
         getWebDriver().quit();
     }

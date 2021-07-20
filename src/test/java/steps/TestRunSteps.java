@@ -16,8 +16,8 @@ public class TestRunSteps extends BaseSteps {
     @Step("Creating a new Test Run: {testRun.testRunTitle}")
     public TestRunSteps createNewTestRun(Project project, TestRun testRun) {
         testRunPage
-                .clickTestRunLeftMenuButton()
-//                .open(project.getCode())
+//                .clickTestRunLeftMenuButton()
+                .open(project.getCode())
                 .isOpened()
                 .clickCreateNewTestRunButton()
                 .createNewTestRun(testRun);
