@@ -13,7 +13,7 @@ public class TestPlanSteps extends BaseSteps {
         testPlanPage = new TestPlanPage();
     }
 
-    @Step("Creating a new suite: {testPlan.testPlanTitle}")
+    @Step("Creating a new Test Plan: {testPlan.testPlanTitle}")
     public TestPlanSteps createNewTestPlan(Project project, TestPlan testPlan) {
         testPlanPage
                 .clickTestPlanLeftMenuButton()
@@ -30,10 +30,10 @@ public class TestPlanSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Deleting Test Plan: '{suiteName}'")
-    public TestPlanSteps deleteTestPlan(String suiteName) {
+    @Step("Deleting Test Plan: '{testPlanName}'")
+    public TestPlanSteps deleteTestPlan(String testPlanName) {
         testPlanPage
-                .deleteTestPlan(suiteName)
+                .deleteTestPlan(testPlanName)
                 .confirmDeletingTestPlan();
         return this;
     }

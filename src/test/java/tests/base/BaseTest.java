@@ -20,7 +20,7 @@ public class BaseTest {
     protected SuiteSteps suiteSteps;
     protected CaseSteps caseSteps;
     protected TestPlanSteps testPlanSteps;
-
+    protected TestRunSteps testRunSteps;
 
     @BeforeClass(description = "Open browser")
     public void setup() {
@@ -40,10 +40,11 @@ public class BaseTest {
         suiteSteps = new SuiteSteps();
         caseSteps = new CaseSteps();
         testPlanSteps = new TestPlanSteps();
+        testRunSteps = new TestRunSteps();
     }
 
     @AfterClass(alwaysRun = true, description = "Close browser")
     public void tearDown() {
-        getWebDriver().quit();
+        getWebDriver().close();
     }
 }

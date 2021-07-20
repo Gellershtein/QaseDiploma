@@ -10,7 +10,7 @@ import static tests.base.BaseTest.HOME_URL;
 
 public class HomePage extends BasePage {
 
-    private SelenideElement loginButton = $("#signin");
+    private final SelenideElement loginButton = $("#signin");
 
     public HomePage open() {
         Selenide.open(HOME_URL);

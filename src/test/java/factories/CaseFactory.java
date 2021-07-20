@@ -1,19 +1,13 @@
 package factories;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.service.FakeValuesService;
-import com.github.javafaker.service.RandomService;
+import factories.base.BaseFactory;
 import models.Case;
 
-import java.util.Locale;
-
-public class CaseFactory {
-    FakeValuesService fakeValuesService;
+public class CaseFactory extends BaseFactory {
     Faker faker;
 
     public Case getCase() {
-        fakeValuesService = new FakeValuesService(
-                new Locale("en-GB"), new RandomService());
         faker = new Faker();
         String status = faker.options().option("Actual", "Draft", "Deprecated");
         String severity = faker.options().option("Not set", "Blocker", "Critical", "Major", "Normal", "Minor", "Trivial");
@@ -35,8 +29,8 @@ public class CaseFactory {
                 .isFlaky(isFlaky)
                 .behavior(behavior)
                 .automationStatus(automationStatus)
-                .preConditions(fakeValuesService.regexify("[a-z1-9]{10}"))
-                .postConditions(fakeValuesService.regexify("[a-z1-9]{10}"))
+                .preconditions(fakeValuesService.regexify("[a-z1-9]{10}"))
+                .postconditions(fakeValuesService.regexify("[a-z1-9]{10}"))
                 .build();
     }
 }

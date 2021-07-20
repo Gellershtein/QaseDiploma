@@ -13,8 +13,8 @@ import pages.base.BasePage;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class ProjectSettingsPage extends BasePage {
-    private SelenideElement settingsLabel = $x("//*[contains(@class, 'project-settings-tab')]/descendant::h1[text()='Settings']");
-    private SelenideElement deleteProjectButton = $x("//*[contains(@class,'text-start')]/*[contains(@class,'btn-cancel')]");
+    private final SelenideElement settingsLabel = $x("//*[contains(@class, 'project-settings-tab')]/descendant::h1[text()='Settings']");
+    private final SelenideElement deleteProjectButton = $x("//*[contains(@class,'text-start')]/*[contains(@class,'btn-cancel')]");
 
     @Override
     public ProjectSettingsPage isOpened() {

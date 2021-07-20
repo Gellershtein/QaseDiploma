@@ -1,19 +1,13 @@
 package factories;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.service.FakeValuesService;
-import com.github.javafaker.service.RandomService;
+import factories.base.BaseFactory;
 import models.Project;
 
-import java.util.Locale;
-
-public class ProjectFactory {
-    FakeValuesService fakeValuesService;
+public class ProjectFactory extends BaseFactory {
     Faker faker;
 
     public Project getProject() {
-        fakeValuesService = new FakeValuesService(
-                new Locale("en-GB"), new RandomService());
         faker = new Faker();
         String accessType = faker.options().option("private", "public");
         return Project.builder()

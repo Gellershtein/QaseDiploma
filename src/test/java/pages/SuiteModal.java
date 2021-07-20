@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SuiteModal extends BaseModal {
 
-    private SelenideElement saveSuiteButton = $("#save-suite-button");
+    private final SelenideElement saveSuiteButton = $("#save-suite-button");
 
     @Override
     public SuiteModal isOpened() {

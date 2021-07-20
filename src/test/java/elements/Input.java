@@ -1,7 +1,9 @@
 package elements;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -13,13 +15,26 @@ public class Input {
         this.label = label;
     }
 
+    //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
     public Input write(String text) {
-        $x(String.format(locator, label)).shouldBe(visible).sendKeys(text);
+        if (!$x(String.format(locator, label)).shouldBe(visible).is(empty)) {
+            clear();
+        } else {
+            $x(String.format(locator, label)).shouldBe(visible).sendKeys(text);
+        }
         return this;
     }
 
+    public Input click() {
+        $x(String.format(locator, label)).shouldBe(visible).click();
+        return this;
+    }
+
+    //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
     public Input clear() {
-        $x(String.format(locator, label)).shouldBe(visible).clear();
+        SelenideElement element = $x(String.format(locator, label));
+        element.click();
+        element.clear();
         return this;
     }
 

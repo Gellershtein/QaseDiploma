@@ -6,7 +6,6 @@ import org.testng.ITestResult;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static utils.AllureUtils.takeScreenshot;
 
 public class TestListener implements ITestListener {

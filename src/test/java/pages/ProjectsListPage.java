@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class ProjectsListPage extends BasePage {
 
-    private String projectNameLabel = "//table[contains(@class,'table')]//*[contains(text(), '%s')]";
-    private String threeDotsButton = "//*[contains(text(),'%s')]/parent::div/parent::td/following-sibling::td[@class='text-end']/descendant::a[contains(@class, 'btn')]";
-    private String deleteDropdownOption = "//*[contains(text(),'%s')]/parent::div/parent::td/following-sibling::td[@class='text-end']/descendant::div[contains(@class, 'dropdown-menu')]/descendant::a[contains(text(), 'Delete')]";
-    private String settingsDropdownOption = "//*[contains(text(),'%s')]/parent::div/parent::td/following-sibling::td[@class='text-end']/descendant::div[contains(@class, 'dropdown-menu')]/descendant::a[contains(text(), 'Settings')]";
+    private final String projectNameLabel = "//table[contains(@class,'table')]//*[contains(text(), '%s')]";
+    private final String threeDotsButton = "//*[contains(text(),'%s')]/parent::div/parent::td/following-sibling::td[@class='text-end']/descendant::a[contains(@class, 'btn')]";
+    private final String deleteDropdownOption = "//*[contains(text(),'%s')]/parent::div/parent::td/following-sibling::td[@class='text-end']/descendant::div[contains(@class, 'dropdown-menu')]/descendant::a[contains(text(), 'Delete')]";
+    private final String settingsDropdownOption = "//*[contains(text(),'%s')]/parent::div/parent::td/following-sibling::td[@class='text-end']/descendant::div[contains(@class, 'dropdown-menu')]/descendant::a[contains(text(), 'Settings')]";
 
     @Override
     public ProjectsListPage isOpened() {

@@ -18,8 +18,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class TestPlanPage extends BasePage {
     private final String testPlanNameLabel = "//a[@class='defect-title' and contains(text(),'%s')]";
     private final String testPlanDescription = "//*[contains(text(),'%s')]";
-    private SelenideElement testPlanLeftMenuButton = $("#menu-link-test-plans");
-
+    private final SelenideElement testPlanLeftMenuButton = $("#menu-link-test-plans");
 
     @Override
     @Step("Validation that the Test Plan is opened")

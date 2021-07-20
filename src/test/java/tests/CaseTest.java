@@ -2,6 +2,7 @@ package tests;
 
 import factories.CaseFactory;
 import factories.ProjectFactory;
+import io.qameta.allure.Feature;
 import lombok.extern.log4j.Log4j2;
 import models.Case;
 import models.Project;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 @Log4j2
+@Feature("Test Case")
 public class CaseTest extends BaseTest {
     Project newProject;
 
