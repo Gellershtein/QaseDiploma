@@ -47,7 +47,7 @@ public class TestPlanPage extends BasePage {
     }
 
     public TestPlanPage clickTestPlanLeftMenuButton() {
-        testPlanLeftMenuButton.click();
+        testPlanLeftMenuButton.hover().click();
         return new TestPlanPage();
     }
 

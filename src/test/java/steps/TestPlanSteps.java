@@ -19,7 +19,7 @@ public class TestPlanSteps extends BaseSteps {
     @Step("Creating a new Test Plan: {testPlan.testPlanTitle}")
     public TestPlanSteps createNewTestPlan(Project project, TestPlan testPlan) {
         testPlanPage
-                .clickTestPlanLeftMenuButton()
+//                .clickTestPlanLeftMenuButton()
                 .openCreatePlan(project)
                 .isOpened()
                 .clickCreateNewTestPlanButton()
