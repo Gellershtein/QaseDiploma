@@ -1,6 +1,7 @@
 package models;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,20 +11,34 @@ import lombok.Data;
 @Builder
 public class Case {
     @Expose
+    int id;
+    @Expose
     String title;
     @Expose
-    int id;
     String description;
-    String suite;
-    String type;
-    String milestone;
-    String status;
+    @Expose
+    String preconditions;
+    @Expose
+    String postconditions;
+    @Expose
     String severity;
+    @Expose
     String priority;
+    @Expose
+    String type;
+    @Expose
+    String behavior;
+    @Expose
+    @SerializedName("automation")
+    String automationStatus;
+    @Expose
+    String status;
+    @Expose
+    @SerializedName("milestone_id")
+    String milestone;
+    @Expose
+    @SerializedName("suite_id")
+    String suite;
     String layer;
     String isFlaky;
-    String behavior;
-    String automationStatus;
-    String preConditions;
-    String postConditions;
 }
