@@ -2,6 +2,7 @@ package tests;
 
 import factories.ProjectFactory;
 import factories.SuiteFactory;
+import io.qameta.allure.Feature;
 import models.Project;
 import models.Suite;
 import org.testng.ITestResult;
@@ -10,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
+@Feature("Test Suite")
 public class SuiteTest extends BaseTest {
     Project newProject;
 
