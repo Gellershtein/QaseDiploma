@@ -27,19 +27,19 @@ public class SuiteSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Deleting suite: '{suiteName}'")
-    public SuiteSteps deleteSuite(String suiteName) {
-        repositoryPage
-                .deleteSuite(suiteName)
-                .confirmDeletingSuite();
-        return this;
-    }
-
     @Step("Updating suite '{suiteName}' with new fields. Title: {updateSuite.title} Description: {updateSuite.description}")
     public SuiteSteps updateSuite(String suiteName, Suite updateSuite) {
         repositoryPage
                 .clickEditSuiteButton(suiteName)
                 .updateSuite(updateSuite);
+        return this;
+    }
+
+    @Step("Deleting suite: '{suiteName}'")
+    public SuiteSteps deleteSuite(String suiteName) {
+        repositoryPage
+                .deleteSuite(suiteName)
+                .confirmDeletingSuite();
         return this;
     }
 
