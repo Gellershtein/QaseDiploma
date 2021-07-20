@@ -13,7 +13,7 @@ import tests.base.BaseTest;
 public class SuiteTest extends BaseTest {
     Project newProject;
 
-    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
+    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
@@ -21,7 +21,8 @@ public class SuiteTest extends BaseTest {
         loginSteps
                 .login(USER, PASSWORD);
         projectsSteps
-                .createNewProject(newProject);
+                .createNewProjectViaApi(newProject)
+                .open(newProject);
     }
 
     @Test(description = "Test suite lifecycle (CRUD)")
@@ -40,12 +41,9 @@ public class SuiteTest extends BaseTest {
                 .isSuiteDeleted(updateSuite.getTitle());
     }
 
-    @AfterTest(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
-        if (result.getStatus() == ITestResult.SUCCESS) {
-            projectsSteps
-                    .deleteProject(newProject.getCode())
-                    .isProjectDeleted(newProject.getTitle());
-        }
+    @AfterMethod(description = "Delete project after test")
+    public void deleteProject() {
+        projectsSteps
+                .deleteProjectViaApi(newProject);
     }
 }

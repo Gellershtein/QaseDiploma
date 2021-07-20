@@ -34,6 +34,7 @@ public class TestRunPage extends BasePage {
     }
 
     public CreateNewTestRunPage clickCreateNewTestRunButton() {
+        new Button("Start new test run").shouldBe(visible);
         new Button("Start new test run").click();
         return new CreateNewTestRunPage();
     }

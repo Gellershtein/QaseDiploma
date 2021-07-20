@@ -7,6 +7,7 @@ import elements.Button;
 import elements.TreeDotsDropdown;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import models.Project;
 import models.TestPlan;
 import pages.base.BasePage;
 
@@ -23,13 +24,14 @@ public class TestPlanPage extends BasePage {
     @Override
     @Step("Validation that the Test Plan is opened")
     public TestPlanPage isOpened() {
-        new Button("Create test plan").shouldBe(visible);
+        new Button("Create plan").shouldBe(visible);
         return this;
     }
 
     @Step("Open Test Plan Page")
-    public TestPlanPage open(String code) {
-        Selenide.open("plan/" + code);
+    public TestPlanPage openCreatePlan(Project project) {
+        Selenide.open("plan/" + project.getCode() + "/create");
+
         return this;
     }
 

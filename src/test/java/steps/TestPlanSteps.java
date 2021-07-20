@@ -1,10 +1,13 @@
 package steps;
 
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import models.Project;
 import models.TestPlan;
 import pages.TestPlanPage;
 import steps.base.BaseSteps;
+
+import static com.codeborne.selenide.Selenide.refresh;
 
 public class TestPlanSteps extends BaseSteps {
     TestPlanPage testPlanPage;
@@ -16,8 +19,8 @@ public class TestPlanSteps extends BaseSteps {
     @Step("Creating a new Test Plan: {testPlan.testPlanTitle}")
     public TestPlanSteps createNewTestPlan(Project project, TestPlan testPlan) {
         testPlanPage
-//                .clickTestPlanLeftMenuButton()
-                .open(project.getCode())
+                .clickTestPlanLeftMenuButton()
+                .openCreatePlan(project)
                 .isOpened()
                 .clickCreateNewTestPlanButton()
                 .createNewTestPlan(testPlan);

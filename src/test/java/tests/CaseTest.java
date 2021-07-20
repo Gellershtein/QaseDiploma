@@ -25,7 +25,8 @@ public class CaseTest extends BaseTest {
         loginSteps
                 .login(USER, PASSWORD);
         projectsSteps
-                .createNewProject(newProject);
+                .createNewProjectViaApi(newProject)
+                .open(newProject);
     }
 
     @Test(description = "Test case lifecycle (CRUD)")
@@ -46,12 +47,7 @@ public class CaseTest extends BaseTest {
 
     @AfterMethod(description = "Delete project after test")
     public void deleteProject(ITestResult result) {
-        if (result.getStatus() == ITestResult.SUCCESS) {
-            projectsSteps
-                    .deleteProject(newProject.getCode())
-                    .isProjectDeleted(newProject.getTitle());
-        } else {
-            log.debug("Test was FAILED, project {} still alive for debugging", newProject.getTitle());
-        }
+        projectsSteps
+                .deleteProjectViaApi(newProject);
     }
 }

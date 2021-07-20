@@ -18,7 +18,7 @@ public class TestRunTest extends BaseTest {
     Case newCase;
 
     //TODO При падении теста, ретрай аналайзер не может продолжить тест, т.к. браузер остается открытым
-    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
+    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
@@ -29,7 +29,8 @@ public class TestRunTest extends BaseTest {
         loginSteps
                 .login(USER, PASSWORD);
         projectsSteps
-                .createNewProject(newProject);
+                .createNewProjectViaApi(newProject)
+                .open(newProject);
         caseSteps
                 .createNewCaseWithoutSuite(newCase);
     }
@@ -50,12 +51,9 @@ public class TestRunTest extends BaseTest {
                 .isTestRunDeleted(updTestRun.getTestRunTitle());
     }
 
-    @AfterTest(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
-        if (result.getStatus() == ITestResult.SUCCESS) {
-            projectsSteps
-                    .deleteProject(newProject.getCode())
-                    .isProjectDeleted(newProject.getTitle());
-        }
+    @AfterMethod(description = "Delete project after test")
+    public void deleteProject() {
+        projectsSteps
+                .deleteProjectViaApi(newProject);
     }
 }

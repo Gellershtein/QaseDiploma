@@ -1,12 +1,20 @@
 package tests.base;
 
 import com.codeborne.selenide.Configuration;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.testng.annotations.*;
 import steps.*;
 import utils.PropertyReader;
 import utils.TestListener;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.codeborne.selenide.WebDriverRunner.*;
 
 @Listeners(TestListener.class)
 public class BaseTest {
@@ -23,8 +31,8 @@ public class BaseTest {
     protected TestPlanSteps testPlanSteps;
     protected TestRunSteps testRunSteps;
 
-    @BeforeTest(description = "Open browser")
-    public void setup() {
+    @BeforeMethod(description = "Open browser")
+    public void setup() throws IOException {
         Configuration.baseUrl = System.getenv().getOrDefault("QASE_URL", PropertyReader.getProperty("qase.url"));
 //        USER = utils.PropertyReader.getProperty("QASE_USER", "qase.user");
 //        PASSWORD = utils.PropertyReader.getProperty("QASE_PASSWORD", "qase.password");
@@ -42,10 +50,12 @@ public class BaseTest {
         caseSteps = new CaseSteps();
         testPlanSteps = new TestPlanSteps();
         testRunSteps = new TestRunSteps();
+
     }
 
-    @AfterTest(alwaysRun = true, description = "Close browser")
+    @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {
         getWebDriver().quit();
+        closeWebDriver();
     }
 }

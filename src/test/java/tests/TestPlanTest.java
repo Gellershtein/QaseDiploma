@@ -16,7 +16,7 @@ public class TestPlanTest extends BaseTest {
     Project newProject;
     Case newCase;
 
-    @BeforeTest(alwaysRun = true, description = "Login and create project before test")
+    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
@@ -24,10 +24,12 @@ public class TestPlanTest extends BaseTest {
         CaseFactory caseFactory = new CaseFactory();
         newCase = caseFactory.getCase();
 
+
         loginSteps
                 .login(USER, PASSWORD);
         projectsSteps
-                .createNewProject(newProject);
+                .createNewProjectViaApi(newProject)
+                .open(newProject);
         caseSteps
                 .createNewCaseWithoutSuite(newCase);
     }
@@ -40,6 +42,7 @@ public class TestPlanTest extends BaseTest {
         TestPlan updTestPlan = testPlanFactory.getTestPlan();
 
         testPlanSteps
+
                 .createNewTestPlan(newProject, newTestPlan)
                 .validateTestPlanFields(newTestPlan)
                 .updateTestPlan(newTestPlan.getTestPlanTitle(), updTestPlan)
@@ -48,12 +51,9 @@ public class TestPlanTest extends BaseTest {
                 .isTestPlanDeleted(updTestPlan.getTestPlanTitle());
     }
 
-    @AfterTest(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
-        if (result.getStatus() == ITestResult.SUCCESS) {
-            projectsSteps
-                    .deleteProject(newProject.getCode())
-                    .isProjectDeleted(newProject.getTitle());
-        }
+    @AfterMethod(description = "Delete project after test")
+    public void deleteProject() {
+        projectsSteps
+                .deleteProjectViaApi(newProject);
     }
 }

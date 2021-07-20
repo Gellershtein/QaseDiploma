@@ -45,6 +45,7 @@ public class LoginPage extends BasePage {
     @Step("Opening 'Login' page")
     @Override
     public LoginPage open() {
+
         Selenide.open("login");
         return this;
     }

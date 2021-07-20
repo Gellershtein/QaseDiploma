@@ -32,6 +32,13 @@ public class ProjectsSteps extends BaseSteps {
         projectAdapter = new ProjectAdapter();
     }
 
+    @Step("Open project '{project.title}' with code '{project.code}'")
+    public ProjectsSteps open(Project project) {
+        projectsListPage
+                .open(project.getCode());
+        return this;
+    }
+
     @Step("Create project '{project.title}' with code '{project.code}'")
     public ProjectsSteps createNewProject(Project project) {
         projectsListPage
