@@ -1,5 +1,6 @@
 package utils;
 
+import com.codeborne.selenide.Configuration;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -26,6 +27,7 @@ public class TestListener implements ITestListener {
         System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
         takeScreenshot(iTestResult.getTestContext());
+        Configuration.reopenBrowserOnFail=true;
 //        getWebDriver().close();
     }
 
@@ -33,6 +35,7 @@ public class TestListener implements ITestListener {
     public void onTestSkipped(ITestResult iTestResult) {
         System.out.println(String.format("======================================== SKIPPING TEST %s ========================================", iTestResult.getName()));
         takeScreenshot(iTestResult.getTestContext());
+        Configuration.reopenBrowserOnFail=true;
 //        getWebDriver().close();
     }
 
