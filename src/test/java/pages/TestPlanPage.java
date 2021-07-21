@@ -28,11 +28,7 @@ public class TestPlanPage extends BasePage {
 
     @Step("Open Test Plan Page")
     public CreateNewTestPlanPage openCreatePlan(Project project) {
-        try {
-            Thread.sleep(500);
-            Selenide.open("plan/" + project.getCode() + "/create");
-        } catch (InterruptedException e) {
-        }
+        Selenide.open("plan/" + project.getCode() + "/create");
         return new CreateNewTestPlanPage();
     }
 

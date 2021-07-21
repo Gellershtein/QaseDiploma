@@ -29,11 +29,7 @@ public class TestRunPage extends BasePage {
 
     @Step("Open Test Run Page")
     public TestRunPage open(Project project) {
-        try {
-            Thread.sleep(500);
-            Selenide.open("run/" + project.getCode());
-        } catch (InterruptedException e) {
-        }
+        Selenide.open("run/" + project.getCode());
         return this;
     }
 
