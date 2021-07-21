@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import elements.Button;
 import elements.TreeDotsDropdown;
 import io.qameta.allure.Step;
@@ -12,14 +11,13 @@ import models.TestPlan;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Log4j2
 public class TestPlanPage extends BasePage {
     private final String testPlanNameLabel = "//a[@class='defect-title' and contains(text(),'%s')]";
     private final String testPlanDescription = "//*[contains(text(),'%s')]";
-    private final SelenideElement testPlanLeftMenuButton = $("#menu-link-test-plans");
+    private final String testPlanLeftMenuButton = String.format(leftMenuButton, "Test Plans");
 
     @Override
     @Step("Validation that the Test Plan is opened")
@@ -29,14 +27,17 @@ public class TestPlanPage extends BasePage {
     }
 
     @Step("Open Test Plan Page")
-    public TestPlanPage openCreatePlan(Project project) {
-        Selenide.open("plan/" + project.getCode() + "/create");
-
-        return this;
+    public CreateNewTestPlanPage openCreatePlan(Project project) {
+        try {
+            Thread.sleep(500);
+            Selenide.open("plan/" + project.getCode() + "/create");
+        } catch (InterruptedException e) {
+        }
+        return new CreateNewTestPlanPage();
     }
 
     public CreateNewTestPlanPage clickCreateNewTestPlanButton() {
-        new Button("Create test plan").click();
+        new Button("Create test plan").shouldBe(visible).click();
         return new CreateNewTestPlanPage();
     }
 
@@ -47,7 +48,7 @@ public class TestPlanPage extends BasePage {
     }
 
     public TestPlanPage clickTestPlanLeftMenuButton() {
-        testPlanLeftMenuButton.hover().click();
+        $x(testPlanLeftMenuButton).hover().click();
         return new TestPlanPage();
     }
 

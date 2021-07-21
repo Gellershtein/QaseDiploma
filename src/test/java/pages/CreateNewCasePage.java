@@ -77,6 +77,7 @@ public class CreateNewCasePage extends BasePage {
 //        new MirrorInput("Post-conditions").shouldHave(theCase.getPostconditions());
         new Button("Cancel").click();
         new Button("Close form").click();
+        alertShouldBeHidden();
         return new RepositoryPage();
     }
 

@@ -22,7 +22,6 @@ public class TestPlanSteps extends BaseSteps {
 //                .clickTestPlanLeftMenuButton()
                 .openCreatePlan(project)
                 .isOpened()
-                .clickCreateNewTestPlanButton()
                 .createNewTestPlan(testPlan);
         return this;
     }

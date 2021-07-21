@@ -41,7 +41,7 @@ public class BaseTest {
         Configuration.clickViaJs = false;
         Configuration.headless = false;
         Configuration.startMaximized = true;
-        Configuration.timeout = 30000;
+        Configuration.timeout = 10000;
 //        Configuration.holdBrowserOpen = true;
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
