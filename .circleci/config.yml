@@ -4,8 +4,8 @@
 # https://circleci.com/docs/2.0/browser-testing/#selenium
 version: 2
 jobs:
-  ui-tests:
-    parallelism: 2
+  ui&api-tests:
+    parallelism: 4
     docker:
       - image: circleci/openjdk:11.0.8-jdk-browsers
     environment:
@@ -39,7 +39,7 @@ workflows:
   version: 2
   commit:
     jobs:
-      - ui-tests
+      - ui&api-tests
   periodical:
     triggers:
       - schedule:
@@ -49,4 +49,4 @@ workflows:
               only:
                 - master
     jobs:
-      - ui-tests
+      - ui&api-tests
