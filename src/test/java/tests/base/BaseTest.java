@@ -41,7 +41,7 @@ public class BaseTest {
         Configuration.clickViaJs = false;
         Configuration.headless = false;
         Configuration.startMaximized = true;
-        Configuration.timeout = 30000;
+        Configuration.timeout = 20000;
 //        Configuration.holdBrowserOpen = true;
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
@@ -56,6 +56,6 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {
         getWebDriver().quit();
-        closeWebDriver();
+//        closeWebDriver();
     }
 }
