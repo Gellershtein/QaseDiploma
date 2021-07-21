@@ -24,7 +24,7 @@ public class MirrorInput {
         $x(String.format(locator, label)).shouldBe(visible).setValue(text);
     }
 
-    //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
+
     public MirrorInput clear() {
         SelenideElement element = $x(String.format(locator, label));
         element.click();

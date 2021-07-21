@@ -15,7 +15,6 @@ public class Input {
         this.label = label;
     }
 
-    //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
     public Input write(String text) {
         if (!$x(String.format(locator, label)).shouldBe(visible).is(empty)) {
             clear();
@@ -30,7 +29,6 @@ public class Input {
         return this;
     }
 
-    //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
     public Input clear() {
         SelenideElement element = $x(String.format(locator, label));
         element.click();

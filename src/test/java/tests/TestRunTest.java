@@ -17,7 +17,6 @@ public class TestRunTest extends BaseTest {
     Project newProject;
     Case newCase;
 
-    //TODO При падении теста, ретрай аналайзер не может продолжить тест, т.к. браузер остается открытым
     @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
     public void loginAndCreateNewProject() {
         ProjectFactory projectFactory = new ProjectFactory();

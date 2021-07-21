@@ -25,7 +25,6 @@ public class CreateNewTestRunPage extends BasePage {
         return new CreateNewTestRunPage();
     }
 
-    //TODO Дима, помилуй, может все таки Thread.sleep(500);?)
     public TestRunPage createNewTestRun(TestRun testRun) {
         new Input("Run title").clear().write(testRun.getTestRunTitle());
         new MirrorInput("Description").clear().write(testRun.getDescription());

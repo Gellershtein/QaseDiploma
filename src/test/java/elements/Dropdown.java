@@ -16,11 +16,12 @@ public class Dropdown {
 
     public Dropdown setDropdown(String optionName) {
         $x(String.format(dropdownLocator, label)).click();
-        $x(String.format(optionLocator, optionName)).click();
+        $x(String.format(optionLocator, optionName)).shouldBe(Condition.visible).click();
         return this;
     }
 
     public void shouldHave(String text) {
         $x(String.format(selectedOption, label, text)).shouldHave(Condition.exactText(text));
     }
+
 }
