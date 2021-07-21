@@ -16,27 +16,27 @@ public class Case {
     String title;
     @Expose
     String description;
-    @Expose
+    @Expose (serialize = false)
     String preconditions;
-    @Expose
+    @Expose (serialize = false)
     String postconditions;
-    @Expose
+    @Expose (serialize = false)
     String severity;
-    @Expose
+    @Expose (serialize = false)
     String priority;
-    @Expose
+    @Expose (serialize = false)
     String type;
-    @Expose
+    @Expose (serialize = false)
     String behavior;
-    @Expose
+    @Expose (serialize = false)
     @SerializedName("automation")
     String automationStatus;
-    @Expose
+    @Expose (serialize = false)
     String status;
-    @Expose
+    @Expose (serialize = false)
     @SerializedName("milestone_id")
     String milestone;
-    @Expose
+    @Expose (serialize = false)
     @SerializedName("suite_id")
     String suite;
     String layer;

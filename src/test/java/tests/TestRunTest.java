@@ -17,21 +17,20 @@ public class TestRunTest extends BaseTest {
     Project newProject;
     Case newCase;
 
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
-    public void loginAndCreateNewProject() {
+    @BeforeMethod(alwaysRun = true, description = "Login, create project and case before test")
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
 
         CaseFactory caseFactory = new CaseFactory();
         newCase = caseFactory.getCase();
 
+        projectsSteps
+                .createNewProjectViaApi(newProject);
+        caseSteps
+                .createNewCaseViaApi(newProject,newCase);
         loginSteps
                 .login(USER, PASSWORD);
-        projectsSteps
-                .createNewProjectViaApi(newProject)
-                .open(newProject);
-        caseSteps
-                .createNewCaseWithoutSuite(newCase);
     }
 
     @Test(description = "Test Run lifecycle (CRUD)")
@@ -51,7 +50,7 @@ public class TestRunTest extends BaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject() {
+    public void postconditions() {
         projectsSteps
                 .deleteProjectViaApi(newProject);
     }

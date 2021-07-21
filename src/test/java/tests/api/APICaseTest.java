@@ -10,16 +10,20 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import steps.CaseSteps;
+import steps.ProjectsSteps;
 import tests.base.BaseTest;
 
 @Log4j2
 @Feature("Test Case")
-public class APICaseTest extends BaseTest {
+public class APICaseTest {
     Project newProject;
     Case newCase;
+    ProjectsSteps projectsSteps = new ProjectsSteps();
+    CaseSteps caseSteps = new CaseSteps();
 
     @BeforeMethod(alwaysRun = true, description = "Create project before test")
-    public void createNewProject() {
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
         CaseFactory caseFactory = new CaseFactory();
@@ -30,22 +34,19 @@ public class APICaseTest extends BaseTest {
                 .createNewProjectViaApi(newProject)
                 .getProjectViaApi(newProject);
 
-        loginSteps
-                .login(USER, PASSWORD);
-        caseSteps
-                .createNewCaseForProject(newProject, newCase);
     }
 
     @Test(description = "Test Case lifecycle (RD)")
     public void getCaseByIdViaApi() {
         caseSteps
+                .createNewCaseViaApi(newProject, newCase)
                 .getCaseWithIdAndValidateItViaApi(newProject, newCase, 1)
                 .getAllCasesUsingAPI(newProject)
                 .deleteCaseByIdViaApi(newProject, 1);
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
+    public void postconditions(ITestResult result) {
         projectsSteps
                 .deleteProjectViaApi(newProject);
 //        if (result.getStatus() == ITestResult.SUCCESS) {

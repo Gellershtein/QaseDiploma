@@ -11,8 +11,8 @@ import tests.base.BaseTest;
 @Feature("Projects")
 public class ProjectsTest extends BaseTest {
 
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
-    public void login() {
+    @BeforeMethod(alwaysRun = true, description = "Login to app")
+    public void preconditions() {
         loginSteps
                 .login(USER, PASSWORD);
     }

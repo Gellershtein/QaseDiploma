@@ -22,7 +22,7 @@ public class APISuiteTest {
     Suite newSuite, updateSuite;
 
     @BeforeMethod(alwaysRun = true, description = "Create project before test")
-    public void createNewProject() {
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
         SuiteFactory suiteFactory = new SuiteFactory();
@@ -44,7 +44,7 @@ public class APISuiteTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
+    public void postconditions(ITestResult result) {
         projectsSteps
                 .deleteProjectViaApi(newProject);
 //        if (result.getStatus() == ITestResult.SUCCESS) {

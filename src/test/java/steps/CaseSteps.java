@@ -1,11 +1,13 @@
 package steps;
 
 import adapters.CaseAdapter;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
 import models.Case;
 import models.Project;
+import models.Suite;
 import models.api.CaseResult;
 import org.testng.Assert;
 import pages.CreateNewCasePage;
@@ -16,13 +18,14 @@ import java.util.List;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 @Log4j2
 public class CaseSteps extends BaseSteps {
     RepositoryPage repositoryPage;
     CreateNewCasePage createNewCasePage;
     CaseAdapter caseAdapter;
-    CaseResult result;
+    CaseResult result, status;
 
     public CaseSteps() {
         repositoryPage = new RepositoryPage();
@@ -77,6 +80,15 @@ public class CaseSteps extends BaseSteps {
     }
 
     //API METHODS
+    @Attachment
+    @Step("Create case for project  '{project.title}' with code '{project.code}' via API")
+    public CaseSteps createNewCaseViaApi(Project newProject, Case newCase) {
+        status = caseAdapter
+                .post(newProject,newCase,200);
+        log.info("Result " + status.getResult());
+        assertTrue(status.isStatus());
+        return this;
+    }
     @Step("Getting case from '{project.title}' with code '{project.code}'")
     public CaseSteps getCaseWithIdAndValidateItViaApi(Project project, Case newCase, int caseId) {
         result = caseAdapter

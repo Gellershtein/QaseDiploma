@@ -14,7 +14,7 @@ public class SuiteTest extends BaseTest {
     Project newProject;
 
     @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
-    public void loginAndCreateNewProject() {
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
 
@@ -42,7 +42,7 @@ public class SuiteTest extends BaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject() {
+    public void postconditions() {
         projectsSteps
                 .deleteProjectViaApi(newProject);
     }

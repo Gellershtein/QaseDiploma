@@ -18,7 +18,7 @@ public class CaseTest extends BaseTest {
     Project newProject;
 
     @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
-    public void loginAndCreateNewProject() {
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
 
@@ -46,7 +46,7 @@ public class CaseTest extends BaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
+    public void postconditions(ITestResult result) {
         projectsSteps
                 .deleteProjectViaApi(newProject);
     }
