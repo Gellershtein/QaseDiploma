@@ -39,7 +39,7 @@ workflows:
   version: 2
   commit:
     jobs:
-      - ui&api-tests
+      - ui-tests
   periodical:
     triggers:
       - schedule:
@@ -49,4 +49,4 @@ workflows:
               only:
                 - master
     jobs:
-      - ui&api-tests
+      - ui-tests
