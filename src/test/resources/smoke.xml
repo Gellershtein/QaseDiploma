@@ -4,42 +4,42 @@
     <listeners>
         <listener class-name="utils.AnnotationTransformer"/>
     </listeners>
-    <!--    <test name="Login Test">-->
-    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.LoginTest"/>-->
-    <!--        </classes>-->
-    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-    <!--    <test name="Project CRUD test">-->
-    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.ProjectsTest"/>-->
-    <!--        </classes>-->
-    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-    <!--    <test name="Suite CRUD test">-->
-    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.SuiteTest"/>-->
-    <!--        </classes>-->
-    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-    <!--    <test name="Case CRUD test">-->
-    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.CaseTest"/>-->
-    <!--        </classes>-->
-    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-    <!--    <test name="Test Plan CRUD test">-->
-    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.TestPlanTest"/>-->
-    <!--        </classes>-->
-    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
-    <!--    <test name="Test Run CRUD test">-->
-    <!--        &lt;!&ndash;  <parameter name="browser" value="chrome"></parameter> &ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.TestRunTest"/>-->
-    <!--        </classes>-->
-    <!--    </test> &lt;!&ndash; Test &ndash;&gt;-->
+        <test name="Login Test">
+            <!--  <parameter name="browser" value="chrome"></parameter> -->
+            <classes>
+                <class name="tests.LoginTest"/>
+            </classes>
+        </test> <!-- Test -->
+        <test name="Project CRUD test">
+            <!--  <parameter name="browser" value="chrome"></parameter> -->
+            <classes>
+                <class name="tests.ProjectsTest"/>
+            </classes>
+        </test> <!-- Test -->
+        <test name="Suite CRUD test">
+            <!--  <parameter name="browser" value="chrome"></parameter> -->
+            <classes>
+                <class name="tests.SuiteTest"/>
+            </classes>
+        </test> <!-- Test -->
+        <test name="Case CRUD test">
+            <!--  <parameter name="browser" value="chrome"></parameter> -->
+            <classes>
+                <class name="tests.CaseTest"/>
+            </classes>
+        </test> <!-- Test -->
+        <test name="Test Plan CRUD test">
+            <!--  <parameter name="browser" value="chrome"></parameter> -->
+            <classes>
+                <class name="tests.TestPlanTest"/>
+            </classes>
+        </test> <!-- Test -->
+        <test name="Test Run CRUD test">
+            <!--  <parameter name="browser" value="chrome"></parameter> -->
+            <classes>
+                <class name="tests.TestRunTest"/>
+            </classes>
+        </test> <!-- Test -->
     <test name="API Project CRD test">
         <!--  <parameter name="browser" value="chrome"></parameter> -->
         <classes>
