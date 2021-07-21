@@ -53,11 +53,9 @@ public class TestRunTest extends BaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
-        if (result.getStatus() == ITestResult.SUCCESS) {
+    public void deleteProject() {
             projectsSteps
                     .deleteProject(newProject.getCode())
                     .isProjectDeleted(newProject.getTitle());
-        }
     }
 }
