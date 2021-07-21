@@ -21,7 +21,7 @@ public class CreateNewCasePage extends BasePage {
 
     @Override
     public CreateNewCasePage isOpened() {
-        createTestCaseLabel.shouldBe(Condition.visible);
+        new Input("Title").shoulBe(Condition.visible);
         return this;
     }
 
