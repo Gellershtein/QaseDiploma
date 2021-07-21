@@ -2,6 +2,7 @@ package tests.api;
 
 import factories.ProjectFactory;
 import factories.SuiteFactory;
+import io.qameta.allure.Feature;
 import lombok.extern.log4j.Log4j2;
 import models.Project;
 import models.Suite;
@@ -13,6 +14,7 @@ import steps.ProjectsSteps;
 import steps.SuiteSteps;
 
 @Log4j2
+@Feature("Test Suite")
 public class APISuiteTest {
     ProjectsSteps projectsSteps = new ProjectsSteps();
     SuiteSteps suiteSteps = new SuiteSteps();
