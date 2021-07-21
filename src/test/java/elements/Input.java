@@ -20,7 +20,7 @@ public class Input {
         if (!$x(String.format(locator, label)).shouldBe(visible).is(empty)) {
             clear();
         } else {
-            $x(String.format(locator, label)).shouldBe(visible).sendKeys(text);
+            $x(String.format(locator, label)).shouldBe(visible).setValue(text);
         }
         return this;
     }

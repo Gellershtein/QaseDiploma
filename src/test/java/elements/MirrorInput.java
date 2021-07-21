@@ -21,7 +21,7 @@ public class MirrorInput {
 
     public void write(String text) {
         setFocus();
-        $x(String.format(locator, label)).shouldBe(visible).sendKeys(text);
+        $x(String.format(locator, label)).shouldBe(visible).setValue(text);
     }
 
     //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
