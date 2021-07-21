@@ -17,8 +17,6 @@ import static com.codeborne.selenide.Selenide.$x;
 public class TestRunPage extends BasePage {
     private final String testRunNameLabel = "//a[@class='defect-title' and contains(text(),'%s')]";
     private final String testRunLeftMenuButton = String.format(leftMenuButton, "Test Runs");
-//            $(By.id("menu-link-test-runs"));
-
 
     @Override
     @Step("Validation that the Test Run is opened")
@@ -44,9 +42,7 @@ public class TestRunPage extends BasePage {
     }
 
     public TestRunPage clickTestRunLeftMenuButton() {
-//        Configuration.clickViaJs = true;
         $x(testRunLeftMenuButton).click();
-//        Configuration.clickViaJs = false;
         return new TestRunPage();
     }
 

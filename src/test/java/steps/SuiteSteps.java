@@ -81,7 +81,6 @@ public class SuiteSteps extends BaseSteps {
     public SuiteSteps getSuiteWithIdAndValidateItViaApi(Project project, Suite newSuite, int suiteId) {
         result = suiteAdapter
                 .get(project, suiteId, 200);
-//        assertEquals(result.getResult(), newCase);
         log.info("Result " + result.getResult());
         assertEquals(result.getResult().getTitle(), newSuite.getTitle());
         assertEquals(result.getResult().getDescription(), newSuite.getDescription());
@@ -92,7 +91,6 @@ public class SuiteSteps extends BaseSteps {
     public SuiteSteps updateSuiteByIdViaApi(Project project, Suite updateSuite, int suiteId) {
         result = suiteAdapter
                 .patch(project, updateSuite, suiteId);
-//        assertEquals(result.getResult(), newCase);
         log.info("Result " + result.getResult());
         assertTrue(status.isStatus());
         return this;

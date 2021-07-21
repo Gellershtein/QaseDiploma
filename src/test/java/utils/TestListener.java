@@ -1,6 +1,5 @@
 package utils;
 
-import com.codeborne.selenide.Configuration;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;

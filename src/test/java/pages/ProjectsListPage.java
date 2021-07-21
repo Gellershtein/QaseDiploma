@@ -26,10 +26,12 @@ public class ProjectsListPage extends BasePage {
         Selenide.open("projects");
         return this;
     }
+
     public ProjectsListPage open(String code) {
         Selenide.open("project/" + code);
         return this;
     }
+
     public CreateNewProjectPage clickCreateNewProjectButton() {
         new Button("Create new project").click();
         return new CreateNewProjectPage();

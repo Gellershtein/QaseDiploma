@@ -1,13 +1,10 @@
 package steps;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import models.Project;
 import models.TestPlan;
 import pages.TestPlanPage;
 import steps.base.BaseSteps;
-
-import static com.codeborne.selenide.Selenide.refresh;
 
 public class TestPlanSteps extends BaseSteps {
     TestPlanPage testPlanPage;

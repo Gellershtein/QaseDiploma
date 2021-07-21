@@ -39,6 +39,7 @@ public class Input {
     public void shouldHave(String text) {
         $x(String.format(locator, label)).shouldHave(Condition.attribute("value", text));
     }
+
     public void shoulBe(Condition condition) {
         $x(String.format(locator, label)).shouldHave(condition);
     }

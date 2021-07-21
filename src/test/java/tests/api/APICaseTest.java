@@ -6,13 +6,11 @@ import io.qameta.allure.Feature;
 import lombok.extern.log4j.Log4j2;
 import models.Case;
 import models.Project;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.CaseSteps;
 import steps.ProjectsSteps;
-import tests.base.BaseTest;
 
 @Log4j2
 @Feature("Test Case")
@@ -46,14 +44,8 @@ public class APICaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void postconditions(ITestResult result) {
+    public void postconditions() {
         projectsSteps
                 .deleteProjectViaApi(newProject);
-//        if (result.getStatus() == ITestResult.SUCCESS) {
-//            projectsSteps
-//                    .deleteProjectViaApi(newProject);
-//        } else {
-//            log.debug("Test was FAILED, project {} still alive for debugging", newProject.getTitle());
-//        }
     }
 }

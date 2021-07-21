@@ -6,7 +6,6 @@ import io.qameta.allure.Attachment;
 import io.restassured.response.Response;
 import models.Case;
 import models.Project;
-import models.Suite;
 import models.api.CaseResult;
 
 public class CaseAdapter extends BaseAdapter {
@@ -14,7 +13,7 @@ public class CaseAdapter extends BaseAdapter {
 
     @Attachment
     public CaseResult post(Project project, Case newCase, int statusCode) {
-        Response response = super.post(String.format("%s%s", URL, project.getCode()),gson.toJson(newCase), statusCode);
+        Response response = super.post(String.format("%s%s", URL, project.getCode()), gson.toJson(newCase), statusCode);
         validateTrueStatus(response);
         return gson.fromJson(response.asString(), CaseResult.class);
     }

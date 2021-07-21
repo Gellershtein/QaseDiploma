@@ -4,7 +4,6 @@ import factories.ProjectFactory;
 import io.qameta.allure.Feature;
 import models.Project;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 

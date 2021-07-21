@@ -6,7 +6,6 @@ import io.qameta.allure.Feature;
 import lombok.extern.log4j.Log4j2;
 import models.Project;
 import models.Suite;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -44,14 +43,8 @@ public class APISuiteTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void postconditions(ITestResult result) {
+    public void postconditions() {
         projectsSteps
                 .deleteProjectViaApi(newProject);
-//        if (result.getStatus() == ITestResult.SUCCESS) {
-//            projectsSteps
-//                    .deleteProjectViaApi(newProject);
-//        } else {
-//            log.debug("Test was FAILED, project {} still alive for debugging", newProject.getTitle());
-//        }
     }
 }

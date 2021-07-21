@@ -7,8 +7,9 @@ import io.qameta.allure.Feature;
 import models.Case;
 import models.Project;
 import models.TestPlan;
-import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 @Feature("Test Plan")
@@ -27,7 +28,7 @@ public class TestPlanTest extends BaseTest {
         projectsSteps
                 .createNewProjectViaApi(newProject);
         caseSteps
-                .createNewCaseViaApi(newProject,newCase);
+                .createNewCaseViaApi(newProject, newCase);
         loginSteps
                 .login(USER, PASSWORD);
     }
