@@ -2,8 +2,10 @@ package factories;
 
 import com.github.javafaker.Faker;
 import factories.base.BaseFactory;
+import lombok.extern.log4j.Log4j2;
 import models.Project;
 
+@Log4j2
 public class ProjectFactory extends BaseFactory {
     Faker faker;
 

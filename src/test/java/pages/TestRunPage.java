@@ -64,6 +64,6 @@ public class TestRunPage extends BasePage {
     @Deprecated
     @Override
     public BasePage open() throws Exception {
-        return null;
+        throw new Exception("You are using deprecated method");
     }
 }

@@ -1,7 +1,6 @@
 package steps;
 
 import adapters.ProjectAdapter;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
@@ -81,7 +80,6 @@ public class ProjectsSteps extends BaseSteps {
     }
 
     // API STEPS METHODS
-    @Attachment
     @Step("Create project '{project.title}' with code '{project.code}'")
     public ProjectsSteps createNewProjectViaApi(Project project) {
         result = projectAdapter

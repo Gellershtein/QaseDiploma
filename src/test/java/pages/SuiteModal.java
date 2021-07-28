@@ -4,11 +4,13 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import elements.Input;
 import elements.MirrorInput;
+import lombok.extern.log4j.Log4j2;
 import models.Suite;
 import pages.base.BaseModal;
 
 import static com.codeborne.selenide.Selenide.$;
 
+@Log4j2
 public class SuiteModal extends BaseModal {
 
     private final SelenideElement saveSuiteButton = $("#save-suite-button");
@@ -22,6 +24,7 @@ public class SuiteModal extends BaseModal {
     public RepositoryPage createNewSuite(Suite suite) {
         fillingSuiteForm(suite);
         saveSuiteButton.click();
+        log.info(String.format("Suite: %s", suite));
         return new RepositoryPage();
     }
 

@@ -1,7 +1,6 @@
 package steps;
 
 import adapters.CaseAdapter;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import lombok.extern.log4j.Log4j2;
@@ -79,7 +78,6 @@ public class CaseSteps extends BaseSteps {
     }
 
     //API METHODS
-    @Attachment
     @Step("Create case for project  '{project.title}' with code '{project.code}' via API")
     public CaseSteps createNewCaseViaApi(Project newProject, Case newCase) {
         status = caseAdapter

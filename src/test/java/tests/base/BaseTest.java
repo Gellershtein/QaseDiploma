@@ -8,8 +8,6 @@ import steps.*;
 import utils.PropertyReader;
 import utils.TestListener;
 
-import java.io.IOException;
-
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Listeners(TestListener.class)
@@ -28,7 +26,7 @@ public class BaseTest {
     protected TestRunSteps testRunSteps;
 
     @BeforeMethod(description = "Open browser")
-    public void setup() throws IOException {
+    public void setup() {
         Configuration.baseUrl = System.getenv().getOrDefault("QASE_URL", PropertyReader.getProperty("qase.url"));
         HOME_URL = System.getenv().getOrDefault("QASE_HOME_URL", PropertyReader.getProperty("qase.homeUrl"));
         Configuration.browser = "chrome";

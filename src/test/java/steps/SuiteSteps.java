@@ -113,11 +113,7 @@ public class SuiteSteps extends BaseSteps {
         result = suiteAdapter
                 .delete(project, suiteId);
         log.info("Actual Result " + result.getResult());
-        try {
-//            assertEquals(result.getResult().getId(), suiteId);
-        } catch (NullPointerException exception) {
-            log.info(String.format("Case with ID %s for project %s with code %s was deleted ", suiteId, project.getTitle(), project.getCode()));
-        }
+        log.info(String.format("Case with ID %s for project %s with code %s was deleted ", suiteId, project.getTitle(), project.getCode()));
         return this;
     }
 }
