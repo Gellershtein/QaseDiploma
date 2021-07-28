@@ -68,3 +68,11 @@ Diploma project for Qase.io
 - [REST API] get ALL Test Suite from project
 - [REST API] update specific Test Suite from project by ID and validate data
 - [REST API] delete existed Test Suite and validate that project deleted
+
+
+### CircleCI
+https://app.circleci.com/pipelines/github/Gellershtein/QaseDiploma
+
+---
+### Stack
+Java 11, Selenide, REST Assured, TestNG, Maven, Allure, Lombok, Log4j2, GSON
