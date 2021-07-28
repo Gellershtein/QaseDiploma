@@ -8,6 +8,7 @@ import steps.*;
 import utils.PropertyReader;
 import utils.TestListener;
 
+import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Listeners(TestListener.class)

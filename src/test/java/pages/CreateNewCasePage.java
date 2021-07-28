@@ -77,7 +77,7 @@ public class CreateNewCasePage extends BasePage {
         new Dropdown("Behavior").shouldHave(theCase.getBehavior());
         new Dropdown("Automation status").shouldHave(theCase.getAutomationStatus());
         new MirrorInput("Pre-conditions").shouldHave(theCase.getPreconditions());
-        new MirrorInput("Post-conditions").shouldHave(theCase.getPostconditions());
+//        new MirrorInput("Post-conditions").shouldHave(theCase.getPostconditions());
         new Button("Cancel").click();
         new Button("Close form").click();
         alertShouldBeHidden();
