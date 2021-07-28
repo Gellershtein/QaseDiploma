@@ -1,8 +1,8 @@
 package tests.base;
 
 import com.codeborne.selenide.Configuration;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import steps.*;
 import utils.PropertyReader;
@@ -14,7 +14,10 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 @Listeners(TestListener.class)
 public class BaseTest {
 
-    public static String USER, PASSWORD, HOME_URL;
+    public static String USER = utils.PropertyReader.getProperty("QASE_USER", "qase.user");
+    public static String PASSWORD = utils.PropertyReader.getProperty("QASE_PASSWORD", "qase.password");
+    public static String HOME_URL;
+
     protected StartSteps startSteps;
     protected LoginSteps loginSteps;
     protected ProjectsSteps projectsSteps;
@@ -23,17 +26,15 @@ public class BaseTest {
     protected TestPlanSteps testPlanSteps;
     protected TestRunSteps testRunSteps;
 
-    @BeforeClass(description = "Open browser")
+    @BeforeMethod(description = "Open browser")
     public void setup() {
         Configuration.baseUrl = System.getenv().getOrDefault("QASE_URL", PropertyReader.getProperty("qase.url"));
-        USER = utils.PropertyReader.getProperty("QASE_USER", "qase.user");
-        PASSWORD = utils.PropertyReader.getProperty("QASE_PASSWORD", "qase.password");
         HOME_URL = System.getenv().getOrDefault("QASE_HOME_URL", PropertyReader.getProperty("qase.homeUrl"));
         Configuration.browser = "chrome";
         Configuration.clickViaJs = false;
         Configuration.headless = false;
         Configuration.startMaximized = true;
-        Configuration.timeout = 30000;
+        Configuration.timeout = 20000;
 //        Configuration.holdBrowserOpen = true;
         loginSteps = new LoginSteps();
         projectsSteps = new ProjectsSteps();
@@ -42,11 +43,11 @@ public class BaseTest {
         caseSteps = new CaseSteps();
         testPlanSteps = new TestPlanSteps();
         testRunSteps = new TestRunSteps();
+
     }
 
-    @AfterClass(alwaysRun = true, description = "Close browser")
+    @AfterMethod(alwaysRun = true, description = "Close browser")
     public void tearDown() {
-        getWebDriver().close();
-        closeWebDriver();
+        getWebDriver().quit();
     }
 }

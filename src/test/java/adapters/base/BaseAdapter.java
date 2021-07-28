@@ -34,10 +34,10 @@ public class BaseAdapter {
         return
                 given()
                         .spec(REQ_SPEC)
-                        .when()
+                .when()
                         .get(String.format("%s%s", URL, request))
-                        .then()
-                        .log().body()
+                .then()
+                        .log().all()
                         .statusCode(statusCode)
                         .extract().response();
     }
@@ -48,10 +48,10 @@ public class BaseAdapter {
         return
                 given()
                         .spec(REQ_SPEC)
-                        .when()
+                .when()
                         .delete(String.format("%s%s", URL, request))
-                        .then()
-                        .log().body()
+                .then()
+                        .log().all()
                         .statusCode(statusCode)
                         .extract().response();
     }
@@ -63,11 +63,11 @@ public class BaseAdapter {
                 given()
                         .spec(REQ_SPEC)
                         .body(body)
-                        .log().body()
+                .log().all()
                         .when()
                         .post(String.format("%s%s", URL, request))
-                        .then()
-                        .log().body()
+                .then()
+                        .log().all()
                         .statusCode(statusCode)
                         .extract().response();
     }
@@ -79,11 +79,11 @@ public class BaseAdapter {
                 given()
                         .spec(REQ_SPEC)
                         .body(body)
-                        .log().body()
-                        .when()
+                        .log().all()
+                .when()
                         .patch(String.format("%s%s", URL, request))
-                        .then()
-                        .log().body()
+                .then()
+                        .log().all()
                         .statusCode(statusCode)
                         .extract().response();
     }

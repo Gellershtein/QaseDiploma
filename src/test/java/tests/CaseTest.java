@@ -18,14 +18,15 @@ public class CaseTest extends BaseTest {
     Project newProject;
 
     @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
-    public void loginAndCreateNewProject() {
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
 
         loginSteps
                 .login(USER, PASSWORD);
         projectsSteps
-                .createNewProject(newProject);
+                .createNewProjectViaApi(newProject)
+                .open(newProject);
     }
 
     @Test(description = "Test case lifecycle (CRUD)")
@@ -45,13 +46,8 @@ public class CaseTest extends BaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject(ITestResult result) {
-        if (result.getStatus() == ITestResult.SUCCESS) {
-            projectsSteps
-                    .deleteProject(newProject.getCode())
-                    .isProjectDeleted(newProject.getTitle());
-        } else {
-            log.debug("Test was FAILED, project {} still alive for debugging", newProject.getTitle());
-        }
+    public void postconditions(ITestResult result) {
+        projectsSteps
+                .deleteProjectViaApi(newProject);
     }
 }

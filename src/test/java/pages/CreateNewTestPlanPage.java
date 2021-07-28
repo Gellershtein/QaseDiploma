@@ -5,12 +5,14 @@ import com.codeborne.selenide.SelenideElement;
 import elements.Button;
 import elements.Input;
 import elements.MirrorInput;
+import lombok.extern.log4j.Log4j2;
 import models.TestPlan;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
+@Log4j2
 public class CreateNewTestPlanPage extends BasePage {
     private final SelenideElement saveTestPlanButton = $("#save-plan");
 
@@ -31,6 +33,7 @@ public class CreateNewTestPlanPage extends BasePage {
         clickAddCasesButton()
                 .addRandomTestCase();
         saveTestPlanButton.click();
+        log.info(String.format("New Test Plan: %s", testPlan));
         return new TestPlanPage();
     }
 
@@ -46,6 +49,6 @@ public class CreateNewTestPlanPage extends BasePage {
     @Deprecated
     @Override
     public BasePage open() throws Exception {
-        return null;
+        throw new Exception("You are using deprecated method");
     }
 }

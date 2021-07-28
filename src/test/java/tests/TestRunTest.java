@@ -7,7 +7,6 @@ import io.qameta.allure.Feature;
 import models.Case;
 import models.Project;
 import models.TestRun;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,21 +18,20 @@ public class TestRunTest extends BaseTest {
     Project newProject;
     Case newCase;
 
-    //TODO При падении теста, ретрай аналайзер не может продолжить тест, т.к. браузер остается открытым
-    @BeforeMethod(alwaysRun = true, description = "Login and create project before test")
-    public void loginAndCreateNewProject() {
+    @BeforeMethod(alwaysRun = true, description = "Login, create project and case before test")
+    public void preconditions() {
         ProjectFactory projectFactory = new ProjectFactory();
         newProject = projectFactory.getProject();
 
         CaseFactory caseFactory = new CaseFactory();
         newCase = caseFactory.getCase();
 
+        projectsSteps
+                .createNewProjectViaApi(newProject);
+        caseSteps
+                .createNewCaseViaApi(newProject, newCase);
         loginSteps
                 .login(USER, PASSWORD);
-        projectsSteps
-                .createNewProject(newProject);
-        caseSteps
-                .createNewCaseWithoutSuite(newCase);
     }
 
     @Test(description = "Test Run lifecycle (CRUD)")
@@ -53,9 +51,8 @@ public class TestRunTest extends BaseTest {
     }
 
     @AfterMethod(description = "Delete project after test")
-    public void deleteProject() {
-            projectsSteps
-                    .deleteProject(newProject.getCode())
-                    .isProjectDeleted(newProject.getTitle());
+    public void postconditions() {
+        projectsSteps
+                .deleteProjectViaApi(newProject);
     }
 }

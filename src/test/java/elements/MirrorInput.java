@@ -2,10 +2,12 @@ package elements;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import lombok.extern.log4j.Log4j2;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
+@Log4j2
 public class MirrorInput {
     String label;
     String locator = "//*[contains(text(), '%s')]/parent::div/descendant::p";
@@ -21,10 +23,11 @@ public class MirrorInput {
 
     public void write(String text) {
         setFocus();
+        log.info(String.format("Writing text '%s' into Input with label '%s'", text, label));
         $x(String.format(locator, label)).shouldBe(visible).setValue(text);
     }
 
-    //TODO попытка стабилизировать тесты, т.к. порой из-за быстроты или хз чего, поле не очищается и метод добавляет к существующему тексту еще текст
+
     public MirrorInput clear() {
         SelenideElement element = $x(String.format(locator, label));
         element.click();

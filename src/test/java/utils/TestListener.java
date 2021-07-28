@@ -7,6 +7,7 @@ import org.testng.ITestResult;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static utils.AllureUtils.takeScreenshot;
 
 public class TestListener implements ITestListener {
@@ -27,7 +28,7 @@ public class TestListener implements ITestListener {
         System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
                 getExecutionTime(iTestResult)));
         takeScreenshot(iTestResult.getTestContext());
-//        getWebDriver().close();
+        //        getWebDriver().close();
     }
 
     @Override
@@ -35,7 +36,7 @@ public class TestListener implements ITestListener {
         System.out.println(String.format("======================================== SKIPPING TEST %s ========================================", iTestResult.getName()));
         takeScreenshot(iTestResult.getTestContext());
         closeWebDriver();
-//        getWebDriver().close();
+        getWebDriver().close();
     }
 
     @Override

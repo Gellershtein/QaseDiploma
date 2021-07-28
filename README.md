@@ -8,6 +8,7 @@ Diploma project for Qase.io
 ### Checklist for
 
 ---------------------
+
 ### **UI part checklist**
 
 #### **Check Login to app**
@@ -29,16 +30,19 @@ Diploma project for Qase.io
 - delete existed suite and validate that project deleted
 
 #### **Test Case check (CRUD)**
+
 - create new case and validate data after creation
 - update existed case and validate data after update
 - delete existed case and validate that project deleted
 
 #### **Test Plan check (CRUD)**
+
 - create new Test Plan and validate data after creation
 - update existed Test Plan and validate data after update
 - delete existed Test Plan and validate that project deleted
 
 #### **Test Run check (CRUD)**
+
 - create new Test Run and validate data after creation
 - update existed Test Run and validate data after update
 - delete existed Test Run and validate that project deleted
@@ -50,7 +54,6 @@ Diploma project for Qase.io
 - [REST API] create new project and validate data after creation
 - [REST API] get specific project by code/ get ALL projects (Limited)
 - [REST API] delete existed project and validate that project deleted
-
 
 #### **Test Case check via API (RD)**
 
@@ -65,3 +68,11 @@ Diploma project for Qase.io
 - [REST API] get ALL Test Suite from project
 - [REST API] update specific Test Suite from project by ID and validate data
 - [REST API] delete existed Test Suite and validate that project deleted
+
+
+### CircleCI
+https://app.circleci.com/pipelines/github/Gellershtein/QaseDiploma
+
+---
+### Stack
+Java 11, Selenide, REST Assured, TestNG, Maven, Allure, Lombok, Log4j2, GSON

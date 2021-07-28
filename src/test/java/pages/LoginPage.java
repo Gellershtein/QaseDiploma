@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import elements.Button;
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import pages.base.BasePage;
 
@@ -11,13 +12,13 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertEquals;
 
+@Log4j2
 public class LoginPage extends BasePage {
 
     private final By ERROR_MESSAGE_LOCATOR = By.className("form-control-feedback");
     public static final String INVALID_CREDENTIALS_ERROR_MESSAGE = "These credentials do not match our records.";
 
     public LoginPage fillLoginForm(String email, String password) {
-
         new Input("Email").write(email);
         new Input("Password").write(password);
         new Button("Login").click();
@@ -32,6 +33,7 @@ public class LoginPage extends BasePage {
 
     @Step("Filling login form")
     public LoginPage invalidLogin(String email, String password) {
+        log.info("Login with Email: " + email + " Password: " + password);
         fillLoginForm(email, password);
         return this;
     }

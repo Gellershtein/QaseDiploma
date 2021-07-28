@@ -2,39 +2,38 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import elements.Button;
 import elements.TreeDotsDropdown;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import models.Project;
 import models.TestPlan;
 import pages.base.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Log4j2
 public class TestPlanPage extends BasePage {
     private final String testPlanNameLabel = "//a[@class='defect-title' and contains(text(),'%s')]";
     private final String testPlanDescription = "//*[contains(text(),'%s')]";
-    private final SelenideElement testPlanLeftMenuButton = $("#menu-link-test-plans");
+    private final String testPlanLeftMenuButton = String.format(leftMenuButton, "Test Plans");
 
     @Override
     @Step("Validation that the Test Plan is opened")
     public TestPlanPage isOpened() {
-        new Button("Create test plan").shouldBe(visible);
+        new Button("Create plan").shouldBe(visible);
         return this;
     }
 
     @Step("Open Test Plan Page")
-    public TestPlanPage open(String code) {
-        Selenide.open("plan/" + code);
-        return this;
+    public CreateNewTestPlanPage openCreatePlan(Project project) {
+        Selenide.open("plan/" + project.getCode() + "/create");
+        return new CreateNewTestPlanPage();
     }
 
     public CreateNewTestPlanPage clickCreateNewTestPlanButton() {
-        new Button("Create test plan").click();
+        new Button("Create test plan").shouldBe(visible).click();
         return new CreateNewTestPlanPage();
     }
 
@@ -45,7 +44,7 @@ public class TestPlanPage extends BasePage {
     }
 
     public TestPlanPage clickTestPlanLeftMenuButton() {
-        testPlanLeftMenuButton.click();
+        $x(testPlanLeftMenuButton).hover().click();
         return new TestPlanPage();
     }
 
@@ -67,6 +66,6 @@ public class TestPlanPage extends BasePage {
     @Deprecated
     @Override
     public BasePage open() throws Exception {
-        return null;
+        throw new Exception("You are using deprecated method");
     }
 }

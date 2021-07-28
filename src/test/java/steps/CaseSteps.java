@@ -16,13 +16,14 @@ import java.util.List;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 @Log4j2
 public class CaseSteps extends BaseSteps {
     RepositoryPage repositoryPage;
     CreateNewCasePage createNewCasePage;
     CaseAdapter caseAdapter;
-    CaseResult result;
+    CaseResult result, status;
 
     public CaseSteps() {
         repositoryPage = new RepositoryPage();
@@ -77,11 +78,19 @@ public class CaseSteps extends BaseSteps {
     }
 
     //API METHODS
+    @Step("Create case for project  '{project.title}' with code '{project.code}' via API")
+    public CaseSteps createNewCaseViaApi(Project newProject, Case newCase) {
+        status = caseAdapter
+                .post(newProject, newCase, 200);
+        log.info("Result " + status.getResult());
+        assertTrue(status.isStatus());
+        return this;
+    }
+
     @Step("Getting case from '{project.title}' with code '{project.code}'")
     public CaseSteps getCaseWithIdAndValidateItViaApi(Project project, Case newCase, int caseId) {
         result = caseAdapter
                 .get(project, caseId, 200);
-//        assertEquals(result.getResult(), newCase);
         assertEquals(result.getResult().getTitle(), newCase.getTitle());
         assertEquals(result.getResult().getDescription(), newCase.getDescription());
         return this;

@@ -33,7 +33,7 @@ public class RepositoryPage extends BasePage {
     @Deprecated
     @Override
     public RepositoryPage open() throws Exception {
-        return this;
+        throw new Exception("You are using deprecated method");
     }
 
     @Override

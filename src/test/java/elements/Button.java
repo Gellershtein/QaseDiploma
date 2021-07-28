@@ -16,7 +16,8 @@ public class Button {
         $x(String.format(locator, label)).shouldBe(Condition.enabled).click();
     }
 
-    public void shouldBe(Condition condition) {
+    public Button shouldBe(Condition condition) {
         $x(String.format(locator, label)).shouldBe(condition);
+        return this;
     }
 }
