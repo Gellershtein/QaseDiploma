@@ -32,7 +32,7 @@ public class APISuiteTest {
                 .createNewProjectViaApi(newProject);
     }
 
-    @Test(description = "Test Suite lifecycle (CRUD)")
+    @Test(description = "API Test Suite lifecycle (CRUD)")
     public void testSuiteShouldBeCreatedThenUpdatedAndDeletedViaApi() {
         suiteSteps
                 .createNewSuiteViaApi(newProject, newSuite)

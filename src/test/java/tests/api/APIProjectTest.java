@@ -12,7 +12,7 @@ import steps.ProjectsSteps;
 public class APIProjectTest {
     ProjectsSteps projectsSteps = new ProjectsSteps();
 
-    @Test(description = "Project lifecycle (CRD)")
+    @Test(description = "API Project lifecycle (CRD)")
     public void projectShouldBeCreatedThenReadAndDeletedViaApi() {
         ProjectFactory projectsFactory = new ProjectFactory();
         Project newProject = projectsFactory.getProject();

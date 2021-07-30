@@ -34,7 +34,7 @@ public class APICaseTest {
 
     }
 
-    @Test(description = "Test Case lifecycle (RD)")
+    @Test(description = "API Test Case lifecycle (RD)")
     public void getCaseByIdViaApi() {
         caseSteps
                 .createNewCaseViaApi(newProject, newCase)

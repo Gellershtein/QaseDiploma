@@ -78,7 +78,7 @@ public class CaseSteps extends BaseSteps {
     }
 
     //API METHODS
-    @Step("Create case for project  '{project.title}' with code '{project.code}' via API")
+    @Step("Create case {newCase.title} for project  '{newProject.title}' with code '{newProject.code}' via API")
     public CaseSteps createNewCaseViaApi(Project newProject, Case newCase) {
         status = caseAdapter
                 .post(newProject, newCase, 200);
@@ -108,7 +108,7 @@ public class CaseSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Deleting project with code: '{projectCode}'")
+    @Step("Deleting project with code: '{project.code}'")
     public CaseSteps deleteCaseByIdViaApi(Project project, int caseId) {
         result = caseAdapter
                 .delete(project, caseId, 200);

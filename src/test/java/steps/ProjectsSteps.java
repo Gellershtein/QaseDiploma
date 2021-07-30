@@ -63,10 +63,10 @@ public class ProjectsSteps extends BaseSteps {
         return this;
     }
 
-    @Step("Deleting project with code: '{projectCode}'")
-    public ProjectsSteps deleteProject(String projectCode) {
+    @Step("Deleting project with code: '{project.code}'")
+    public ProjectsSteps deleteProject(Project project) {
         projectSettingsPage
-                .open(projectCode)
+                .open(project.getCode())
                 .clickDeleteProjectButton()
                 .confirmDeleting();
         return this;
@@ -116,7 +116,7 @@ public class ProjectsSteps extends BaseSteps {
         return projectsCodes;
     }
 
-    @Step("Deleting project with code: '{projectCode}'")
+    @Step("Deleting project with code: '{project.code}'")
     public ProjectsSteps deleteProjectViaApi(Project project) {
         result = projectAdapter
                 .delete(project);

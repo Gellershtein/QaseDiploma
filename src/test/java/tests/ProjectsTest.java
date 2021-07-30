@@ -27,7 +27,7 @@ public class ProjectsTest extends BaseTest {
                 .validateProjectFields(newProject)
                 .updateProject(newProject.getCode(), updateProject)
                 .validateProjectFields(updateProject)
-                .deleteProject(updateProject.getCode())
+                .deleteProject(updateProject)
                 .isProjectDeleted(updateProject.getTitle());
     }
 }
